@@ -7,7 +7,13 @@ public class MainClass {
         Point thirdPoint = new Point(3, 3, 3);
         Point fourthPoint = new Point(4, 4, 4);
 
-        double resPoint = Points.length(thirdPoint);
-        System.out.println(resPoint);
+        Point resPoint = Points.opposite(thirdPoint);
+        Point othPoint = Points.inverse(secondPoint);
+        System.out.println(resPoint.x);
+        System.out.println(resPoint.y);
+        System.out.println(resPoint.z);
+        System.out.println(othPoint.x);
+        System.out.println(othPoint.y);
+        System.out.println(othPoint.z);
     }
 }
