@@ -7,9 +7,7 @@ public class MainClass {
         Point thirdPoint = new Point(3, 3, 3);
         Point fourthPoint = new Point(4, 4, 4);
 
-        Point resPoint = Points.enlarge(firstPoint, 2);
-        System.out.println(resPoint.x);
-        System.out.println(resPoint.y);
-        System.out.println(resPoint.z);
+        double resPoint = Points.length(thirdPoint);
+        System.out.println(resPoint);
     }
 }
