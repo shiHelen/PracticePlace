@@ -7,13 +7,12 @@ public class MainClass {
         Point thirdPoint = new Point(3, 3, 3);
         Point fourthPoint = new Point(4, 4, 4);
 
-        Point resPoint = Points.opposite(thirdPoint);
-        Point othPoint = Points.inverse(secondPoint);
-        System.out.println(resPoint.x);
-        System.out.println(resPoint.y);
-        System.out.println(resPoint.z);
+        double scalar = Points.scalarProduct(thirdPoint, fourthPoint);
+        Point othPoint = Points.vectorProduct(secondPoint, firstPoint);
+        System.out.println(scalar);
         System.out.println(othPoint.x);
         System.out.println(othPoint.y);
         System.out.println(othPoint.z);
+
     }
 }
