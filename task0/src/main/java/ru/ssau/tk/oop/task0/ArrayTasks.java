@@ -2,12 +2,12 @@ package ru.ssau.tk.oop.task0;
 
 public class ArrayTasks {
     public int[] generateArray(int l) {
-        int[] ones = new int[l];
+        int[] myArray = new int[l];
+        int k = 1;
         for (int i = 0; i < l; i++) {
-            ones[i] = 1;
+            myArray[i] = k;
+            k = k + 2;
         }
-        ones[0] = 2;
-        ones[l - 1] = 2;
-        return ones;
+        return myArray;
     }
 }

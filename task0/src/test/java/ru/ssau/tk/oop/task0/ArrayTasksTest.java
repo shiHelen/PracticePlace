@@ -10,10 +10,10 @@ public class ArrayTasksTest {
     public void testGenerateArray() {
         ArrayTasks check = new ArrayTasks();
         int[] newArray = check.generateArray(5);
-        assertEquals(newArray[0], 2);
-        assertEquals(newArray[1], 1);
-        assertEquals(newArray[2], 1);
-        assertEquals(newArray[3], 1);
-        assertEquals(newArray[4], 2);
+        assertEquals(newArray[0], 1);
+        assertEquals(newArray[1], 3);
+        assertEquals(newArray[2], 5);
+        assertEquals(newArray[3], 7);
+        assertEquals(newArray[4], 9);
     }
 }
