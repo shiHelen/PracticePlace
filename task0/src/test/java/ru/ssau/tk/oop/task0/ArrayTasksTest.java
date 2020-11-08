@@ -7,12 +7,13 @@ import static org.testng.Assert.*;
 public class ArrayTasksTest {
 
     @Test
-    public void testArrayLength() {
+    public void testGenerateArray() {
         ArrayTasks check = new ArrayTasks();
-        int[] newArray = check.arrayLength(3);
-        assertEquals(newArray.length, 3);
-        int[] othArray = check.arrayLength(5);
-        assertEquals(othArray.length, 5);
-        assertNotEquals(othArray.length, 4);
+        int[] newArray = check.generateArray(5);
+        assertEquals(newArray[0], 2);
+        assertEquals(newArray[1], 1);
+        assertEquals(newArray[2], 1);
+        assertEquals(newArray[3], 1);
+        assertEquals(newArray[4], 2);
     }
 }
