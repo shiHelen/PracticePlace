@@ -1,13 +1,19 @@
 package ru.ssau.tk.oop.task0;
 
 public class ArrayTasks {
-    public int[] generateArrayDecreasingEven(int l) {
-        int[] myArray = new int[l];
-        int k = 2 * l;
-        for (int i = 0; i < l; i++) {
-            myArray[i] = k;
-            k = k - 2;
+    public int[] generateArrayFibonacciNumbers(int l) {
+        if (l == 1) {
+            return new int[]{1};
         }
-        return myArray;
+        if (l == 2) {
+            return new int[]{1, 1};
+        }
+        int[] fibArray = new int[l];
+        fibArray[0] = 1;
+        fibArray[1] = 1;
+        for (int i = 2; i < l; i++) {
+            fibArray[i] = fibArray[i - 1] + fibArray[i - 2];
+        }
+        return fibArray;
     }
 }
