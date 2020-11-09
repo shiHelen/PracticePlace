@@ -9,12 +9,12 @@ public class ArrayTasksTest {
     @Test
     public void testGenerateArray() {
         ArrayTasks check = new ArrayTasks();
-        int[] newArray = check.generateArrayFibonacciNumbers(6);
-        assertEquals(newArray[0], 1);
+        int[] newArray = check.generateArraySqrIndex(6);
+        assertEquals(newArray[0], 0);
         assertEquals(newArray[1], 1);
-        assertEquals(newArray[2], 2);
-        assertEquals(newArray[3], 3);
-        assertEquals(newArray[4], 5);
-        assertEquals(newArray[5], 8);
+        assertEquals(newArray[2], 4);
+        assertEquals(newArray[3], 9);
+        assertEquals(newArray[4], 16);
+        assertEquals(newArray[5], 25);
     }
 }
