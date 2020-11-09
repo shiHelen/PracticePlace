@@ -7,14 +7,9 @@ import static org.testng.Assert.*;
 public class ArrayTasksTest {
 
     @Test
-    public void testGenerateArray() {
-        ArrayTasks check = new ArrayTasks();
-        int[] newArray = check.generateArraySqrIndex(6);
-        assertEquals(newArray[0], 0);
-        assertEquals(newArray[1], 1);
-        assertEquals(newArray[2], 4);
-        assertEquals(newArray[3], 9);
-        assertEquals(newArray[4], 16);
-        assertEquals(newArray[5], 25);
+    public void testGetArithmeticProgression() {
+        assertEquals(ArrayTasks.getArithmeticProgression(2, 5, -2), new double[]{5, 3});
+        assertEquals(ArrayTasks.getArithmeticProgression(5, -1, 2), new double[]{-1, 1, 3, 5, 7});
+        assertEquals(ArrayTasks.getArithmeticProgression(3, 0, 4), new double[]{0, 4, 8});
     }
 }

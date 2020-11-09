@@ -1,11 +1,12 @@
 package ru.ssau.tk.oop.task0;
 
 public class ArrayTasks {
-    public int[] generateArraySqrIndex(int l) {
-        int[] taskArray = new int[l];
-        for (int i = 0; i < l; i++) {
-            taskArray[i] = i * i;
+    static double[] getArithmeticProgression(int n, double a1, double d) {
+        double[] array = new double[n];
+        array[0] = a1;
+        for (int i = 1; i < n; i++) {
+            array[i] = array[i - 1] + d;
         }
-        return taskArray;
+        return array;
     }
 }
