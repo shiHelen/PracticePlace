@@ -131,4 +131,15 @@ public class ArrayTasksTest {
         Integer[] arrayNew = new Integer[]{null, 0, 1, null};
         assertTrue(ArrayTasks.checkNull(arrayNew));
     }
+
+    @Test
+    public void testCountEvenNumbers() {
+        ArrayTasks checkNumbers = new ArrayTasks();
+        int[] arrayOne = new int[]{1, 2, 3, 4, 5, 6, 10};
+        assertEquals(checkNumbers.countEvenNumbers(arrayOne), 4);
+        int[] arrayTwo = new int[]{2, 4, 6, 8, 12, 22, 24, 86, 100};
+        assertEquals(checkNumbers.countEvenNumbers(arrayTwo), 9);
+        int[] arrayThree = new int[]{1, 3, 5, 7, 9, 11, 13, 15, 21, 89, 91};
+        assertEquals(checkNumbers.countEvenNumbers(arrayThree), 0);
+    }
 }

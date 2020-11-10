@@ -1,5 +1,6 @@
 package ru.ssau.tk.oop.task0;
 
+import static java.lang.Math.max;
 import static java.lang.Math.sqrt;
 
 public class ArrayTasks {
@@ -146,5 +147,15 @@ public class ArrayTasks {
             }
         }
         return false;
+    }
+
+    public int countEvenNumbers(int[] numbers) {
+        int k = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] % 2 == 0) {
+                k++;
+            }
+        }
+        return k;
     }
 }
