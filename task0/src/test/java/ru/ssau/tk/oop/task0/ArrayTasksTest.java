@@ -142,4 +142,15 @@ public class ArrayTasksTest {
         int[] arrayThree = new int[]{1, 3, 5, 7, 9, 11, 13, 15, 21, 89, 91};
         assertEquals(checkNumbers.countEvenNumbers(arrayThree), 0);
     }
+
+    @Test
+    public void testFindMax() {
+        ArrayTasks array = new ArrayTasks();
+        int[] checkArray = new int[]{7, 6, 8, 5, 3, 2, 4, 1};
+        assertEquals(array.findMax(checkArray), new Integer(8));
+        int[] checkTwoArray = new int[]{-7, 6, 87, -5, -3, 2, -4, 1};
+        assertEquals(array.findMax(checkTwoArray), new Integer(87));
+        int[] checkNewArray = new int[]{};
+        assertNull(array.findMax(checkNewArray));
+    }
 }
