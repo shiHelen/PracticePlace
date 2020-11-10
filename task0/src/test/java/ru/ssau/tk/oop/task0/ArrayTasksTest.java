@@ -121,4 +121,14 @@ public class ArrayTasksTest {
         assertEquals(array[1], 6);
         assertEquals(array[2], -8);
     }
+
+    @Test
+    public void testCheckNull() {
+        Integer[] array = new Integer[]{2, 5, 6, null};
+        assertTrue(ArrayTasks.checkNull(array));
+        Integer[] arrayToo = new Integer[]{3, 2, 1};
+        assertFalse(ArrayTasks.checkNull(arrayToo));
+        Integer[] arrayNew = new Integer[]{null, 0, 1, null};
+        assertTrue(ArrayTasks.checkNull(arrayNew));
+    }
 }
