@@ -87,4 +87,13 @@ public class ArrayTasksTest {
         assertEquals(checkSolution.quadraticSolution(0, 4, -2), new double[]{0.5}, 0.001);
         assertEquals(checkSolution.quadraticSolution(1, 4, 4), new double[]{-2}, 0.001);
     }
+
+    @Test
+    public void testArrayNumbersWithoutDivisorsThree() {
+        ArrayTasks checkArray = new ArrayTasks();
+        checkArray.arrayNumbersWithoutDivisorsThree(4);
+        assertEquals(checkArray.arrayNumbersWithoutDivisorsThree(4), new int[]{1, 2, 4, 5});
+        assertEquals(checkArray.arrayNumbersWithoutDivisorsThree(5), new int[]{1, 2, 4, 5, 7});
+        assertEquals(checkArray.arrayNumbersWithoutDivisorsThree(10), new int[]{1, 2, 4, 5, 7, 8, 10, 11, 13, 14});
+    }
 }

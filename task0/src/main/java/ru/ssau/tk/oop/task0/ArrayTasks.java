@@ -90,4 +90,17 @@ public class ArrayTasks {
         }
         return new double[0];
     }
+
+    public int[] arrayNumbersWithoutDivisorsThree(int l) {
+        int[] numbersArray = new int[l];
+        int k = 1;
+        for (int i = 0; i < l; i++) {
+            numbersArray[i] = k;
+            k++;
+            if (k % 3 == 0) {
+                k++;
+            }
+        }
+        return numbersArray;
+    }
 }
