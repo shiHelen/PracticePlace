@@ -1,6 +1,5 @@
 package ru.ssau.tk.oop.task0;
 
-import static java.lang.Math.decrementExact;
 import static java.lang.Math.sqrt;
 
 public class ArrayTasks {
@@ -132,5 +131,11 @@ public class ArrayTasks {
             }
         }
         return false;
+    }
+
+    static void changeSign(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = -1 * array[i];
+        }
     }
 }

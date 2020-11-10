@@ -112,4 +112,13 @@ public class ArrayTasksTest {
         assertTrue(ArrayTasks.findNumberInArray(array, 4));
         assertFalse(ArrayTasks.findNumberInArray(array, 7));
     }
+
+    @Test
+    public void testChangeSign() {
+        int[] array = {2, -6, 8};
+        ArrayTasks.changeSign(array);
+        assertEquals(array[0], -2);
+        assertEquals(array[1], 6);
+        assertEquals(array[2], -8);
+    }
 }
