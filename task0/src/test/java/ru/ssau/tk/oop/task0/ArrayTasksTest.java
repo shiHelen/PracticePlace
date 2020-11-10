@@ -104,4 +104,12 @@ public class ArrayTasksTest {
         assertEquals(checkProgression.geometricProgression(5, 0.4, -2), new double[]{-2, -0.8, -0.32, -0.128, -0.0512}, 0.0001);
         assertEquals(checkProgression.geometricProgression(3, -2, -0.1), new double[]{-0.1, 0.2, -0.4}, 0.0001);
     }
+
+    @Test
+    public void testFindNumberInArray() {
+        int[] array = {2, 6, 8, 10, 4};
+        assertFalse(ArrayTasks.findNumberInArray(array, 5));
+        assertTrue(ArrayTasks.findNumberInArray(array, 4));
+        assertFalse(ArrayTasks.findNumberInArray(array, 7));
+    }
 }

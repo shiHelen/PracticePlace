@@ -113,4 +113,24 @@ public class ArrayTasks {
         }
         return bProgression;
     }
+
+    public double[] getArrayDivisors(int c, int l) {
+        double[] divisors = new double[]{};
+        int i = 1;
+        divisors[0] = c;
+        while (divisors[i] < sqrt(c)) {
+            divisors[i] += c;
+            i++;
+        }
+        return divisors;
+    }
+
+    static boolean findNumberInArray(int[] array, int n) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == n) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
