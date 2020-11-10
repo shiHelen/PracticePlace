@@ -1,5 +1,6 @@
 package ru.ssau.tk.oop.task0;
 
+import static java.lang.Math.decrementExact;
 import static java.lang.Math.sqrt;
 
 public class ArrayTasks {
@@ -102,5 +103,14 @@ public class ArrayTasks {
             }
         }
         return numbersArray;
+    }
+
+    public double[] geometricProgression(int l, double q, double b1) {
+        double[] bProgression = new double[l];
+        bProgression[0] = b1;
+        for (int i = 1; i < l; i++) {
+            bProgression[i] = bProgression[i - 1] * q;
+        }
+        return bProgression;
     }
 }
