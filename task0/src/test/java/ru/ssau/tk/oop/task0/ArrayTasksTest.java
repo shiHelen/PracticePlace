@@ -194,4 +194,12 @@ public class ArrayTasksTest {
         ArrayTasks.exchangedMaxAndMin(arrayThird);
         assertEquals(arrayThird, new int[]{7, 0, 2, 0, 0});
     }
+
+    @Test
+    public void testFindIndexOfNumber() {
+        int[] checkArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 20, 22, 11, 12, 89, 100};
+        assertEquals(ArrayTasks.findIndexOfNumber(checkArray, 5), 4);
+        assertEquals(ArrayTasks.findIndexOfNumber(checkArray, 11), 10);
+        assertEquals(ArrayTasks.findIndexOfNumber(checkArray, 89), 18);
+    }
 }
