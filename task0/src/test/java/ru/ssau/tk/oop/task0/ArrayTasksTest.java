@@ -2,6 +2,8 @@ package ru.ssau.tk.oop.task0;
 
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+
 import static org.testng.Assert.*;
 
 public class ArrayTasksTest {
@@ -232,5 +234,30 @@ public class ArrayTasksTest {
         assertEquals(check.findMostCommonElement(checkNumbersTwo), 4);
         int[] checkNumbersThree = {0, -2, 3, 0, -5, 0, -4, 6, 0, 6};
         assertEquals(check.findMostCommonElement(checkNumbersThree), 0);
+    }
+    /*
+    @Test
+    public void testArraySimpleNumbers() {
+        ArrayTasks test = new ArrayTasks();
+        int[] nn = new int[]{2, 3, 5, 7, 9};
+        assertEquals(test.arraySimpleNumbers(10), new ArrayList<>());
+    }
+    */
+
+    @Test
+    public void testSortWithoutNaN() {
+        double[] array = {5.5, 1, 0, 6};
+        ArrayTasks.sortWithoutNaN(array);
+        assertEquals(array, new double[]{0, 1, 5.5, 6});
+
+        double[] arrayOne = new double[2];
+        arrayOne[0] = 1;
+        arrayOne[1] = Double.NaN;
+        ArrayTasks.sortWithoutNaN(arrayOne);
+        assertEquals(arrayOne[0], 1);
+
+        double[] arrayTwo = {1.4, 2.3, 4.5, Double.NaN, 7.9, Double.NaN, 11, Double.NaN, -8};
+        ArrayTasks.sortWithoutNaN(arrayTwo);
+        assertEquals(arrayTwo, new double[]{1.4, 2.3, 4.5, Double.NaN, 7.9, Double.NaN, 11, Double.NaN, -8});
     }
 }

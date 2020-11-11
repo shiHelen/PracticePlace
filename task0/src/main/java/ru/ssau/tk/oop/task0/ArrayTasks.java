@@ -1,5 +1,8 @@
 package ru.ssau.tk.oop.task0;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.lang.Math.max;
 import static java.lang.Math.sqrt;
 
@@ -113,8 +116,12 @@ public class ArrayTasks {
         }
         return bProgression;
     }
-
-    public double[] getArrayDivisors(int c, int l) {
+    /*
+    public double[] getArrayDivisors(int c) {
+        //разложить входное число на простые множители
+        //найти число делителей входного числа
+        //создать массив с размерностью числа делителей
+        //заполнить массив простыми множителями делителями и всевозможными их произведениями
         double[] divisors = new double[]{};
         int i = 1;
         divisors[0] = c;
@@ -124,6 +131,7 @@ public class ArrayTasks {
         }
         return divisors;
     }
+    */
 
     static boolean findNumberInArray(int[] array, int n) {
         for (int i = 0; i < array.length; i++) {
@@ -281,5 +289,32 @@ public class ArrayTasks {
             }
         }
         return 0;
+    }
+    /*
+    public int[] arraySimpleNumbers(int c) {
+        List<Integer> simple = new ;
+        for (int i = 2; i < c; i++) {
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    continue;
+                }
+            }
+            simple.add(i);
+        }
+        int[] simpleArray = simple.toArray(new int[simple.size()]);
+        return simpleArray;
+    }
+     */
+
+    static void sortWithoutNaN(double[] array) {
+        int k = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (Double.isNaN(array[i])) {
+                k++;
+            }
+        }
+        if (k == 0) {
+            java.util.Arrays.sort(array);
+        }
     }
 }
