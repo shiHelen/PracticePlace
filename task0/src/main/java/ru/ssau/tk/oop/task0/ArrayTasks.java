@@ -317,4 +317,16 @@ public class ArrayTasks {
             java.util.Arrays.sort(array);
         }
     }
+
+    static boolean[] findEvenNumbers(int[] array) {
+        boolean[] bool = new boolean[array.length];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                bool[i] = true;
+            } else {
+                bool[i] = false;
+            }
+        }
+        return bool;
+    }
 }

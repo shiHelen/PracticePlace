@@ -260,4 +260,16 @@ public class ArrayTasksTest {
         ArrayTasks.sortWithoutNaN(arrayTwo);
         assertEquals(arrayTwo, new double[]{1.4, 2.3, 4.5, Double.NaN, 7.9, Double.NaN, 11, Double.NaN, -8});
     }
+
+    @Test
+    public void testFindEvenNumbers() {
+        int[] arrayOne = {1, 2, 3, 4, 5};
+        assertEquals(ArrayTasks.findEvenNumbers(arrayOne), new boolean[]{false, true, false, true, false});
+        int[] arrayTwo = {2, 4, 6, 8, 10};
+        assertEquals(ArrayTasks.findEvenNumbers(arrayTwo), new boolean[]{true, true, true, true, true});
+        int[] arrayThree = {1, 3, 5, 7, 9};
+        assertEquals(ArrayTasks.findEvenNumbers(arrayThree), new boolean[]{false, false, false, false, false});
+        int[] arrayFour = {-1, 3, -5, 4, 0};
+        assertEquals(ArrayTasks.findEvenNumbers(arrayFour), new boolean[]{false, false, false, true, true});
+    }
 }
