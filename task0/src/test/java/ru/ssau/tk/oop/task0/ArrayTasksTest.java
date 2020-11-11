@@ -169,4 +169,16 @@ public class ArrayTasksTest {
         assertEquals(checkSum.sumOfEvenIndex(new int[]{11, 32, 43, -4, 58, -76, 870}), 982);
         assertEquals(checkSum.sumOfEvenIndex(new int[]{-1, 2, -3, 4, -5, 6, -10}), -19);
     }
+
+    @Test
+    public void testBitwiseNOT() {
+        int[] array = {12, 15, 56};
+        ArrayTasks.bitwiseNOT(array);
+        assertEquals(array, new int[]{-13, -16, -57});
+        ArrayTasks.bitwiseNOT(array);
+        assertEquals(array, new int[]{12, 15, 56});
+        int[] newArray = {-2, 5, -6};
+        ArrayTasks.bitwiseNOT(newArray);
+        assertEquals(newArray, new int[]{1, -6, 5});
+    }
 }
