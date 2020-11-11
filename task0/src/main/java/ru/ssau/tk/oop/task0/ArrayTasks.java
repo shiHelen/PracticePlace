@@ -263,4 +263,23 @@ public class ArrayTasks {
         }
         return k1 > k2;
     }
+
+    public int findMostCommonElement(int[] numbers) {
+        int num = numbers[0];
+        int max_common = 1;
+        for (int i = 0; i < numbers.length - 1; i++) {
+            int common = 1;
+            for (int k = i + 1; k < numbers.length; k++) {
+                if (numbers[i] == numbers[k]) {
+                    common += 1;
+                }
+                if (common > max_common) {
+                    max_common = common;
+                    num = numbers[i];
+                    return numbers[i];
+                }
+            }
+        }
+        return 0;
+    }
 }
