@@ -212,4 +212,14 @@ public class ArrayTasksTest {
         int[] yesArrayTwo = {17, -1, 2, 4};
         assertEquals(check.arrayBitwiseNot(yesArrayTwo), new int[]{-18, 0, -3, -5});
     }
+
+    @Test
+    public void testFindMoreDivisors() {
+        int[] numbersOne = {27, 3, 9, 8, 2, 4, 6, 12, 24};
+        assertFalse(ArrayTasks.findMoreDivisors(numbersOne));
+        int[] numbersTwo = {12, 4, 3, 2, 6, 1, 17, 18, 25};
+        assertTrue(ArrayTasks.findMoreDivisors(numbersTwo));
+        int[] numbersThree = {27, 3, 9, 8, 6, 12, 24};
+        assertFalse(ArrayTasks.findMoreDivisors(numbersThree));
+    }
 }
