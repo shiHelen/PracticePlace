@@ -241,4 +241,12 @@ public class ArrayTasks {
         }
         return 0;
     }
+
+    public int[] arrayBitwiseNot(int[] yesArray) {
+        int[] notArray = new int[yesArray.length];
+        for (int i = 0; i < yesArray.length; i++) {
+            notArray[i] = ~yesArray[i];
+        }
+        return notArray;
+    }
 }
