@@ -234,4 +234,12 @@ public class ArrayTasksTest {
         ArrayTasks.sortWithoutNaN(arrayTwo);
         assertEquals(arrayTwo, new double[]{1.4, 2.3, 4.5, Double.NaN, 7.9, Double.NaN, 11, Double.NaN, -8});
     }
+
+    @Test
+    public void testMultiplyNormalNumbers() {                               //2.34 произведение всех ненулевых, ненечисел, небесконечностей.
+        assertEquals(ArrayTasks.multiplyNormalNumbers(new double[]{1, 2, 3, Double.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY}), 6);
+        assertEquals(ArrayTasks.multiplyNormalNumbers(new double[]{0, Double.NEGATIVE_INFINITY, 1, 2, 0, 0}), 2);
+        assertEquals(ArrayTasks.multiplyNormalNumbers(new double[]{0, Double.POSITIVE_INFINITY, 1, 2, 7, 2}), 28);
+        assertEquals(ArrayTasks.multiplyNormalNumbers(new double[]{0, Double.NaN, 1, -2, 7, 3}), -42);
+    }
 }

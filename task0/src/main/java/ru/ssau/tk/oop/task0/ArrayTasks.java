@@ -348,14 +348,25 @@ public class ArrayTasks {
         }
     }
 
-    public static void main(String[] args) {       //вызов 2.33
+    public static void main(String[] args) {                    //вызов 2.33
         String[] strs = {"dead inside", "already", "just stop"};
         printStrings(strs);
     }
 
-    static void printStrings(String[] strs) {      //2.33 вывод в консоль массива строк
+    static void printStrings(String[] strs) {                   //2.33 вывод в консоль массива строк
         for (String s : strs) {
             System.out.println(s);
         }
+    }
+
+    static double multiplyNormalNumbers(double[] array) {          //2.34 произведение всех ненулевых, ненечисел, небесконечностей.
+        double multiply = 1;
+        for (Double i : array
+        ) {
+            if (i != 0 & !i.isInfinite() & !i.isNaN()) {
+                multiply *= i;
+            }
+        }
+        return multiply;
     }
 }
