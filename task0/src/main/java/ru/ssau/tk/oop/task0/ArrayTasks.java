@@ -347,4 +347,15 @@ public class ArrayTasks {
             java.util.Arrays.sort(array);
         }
     }
+
+    public static void main(String[] args) {       //вызов 2.33
+        String[] strs = {"dead inside", "already", "just stop"};
+        printStrings(strs);
+    }
+
+    static void printStrings(String[] strs) {      //2.33 вывод в консоль массива строк
+        for (String s : strs) {
+            System.out.println(s);
+        }
+    }
 }
