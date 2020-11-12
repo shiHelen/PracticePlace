@@ -321,6 +321,21 @@ public class ArrayTasks {
         return bool;
     }
 
+    static int[][] createTwoDimensionalArray(int n) {           //2.30 массив из массивов натуральных чисел поменьше
+        int[][] array = new int[n][];
+        int m = n;
+        int k = 1;
+        for (int i = 0; i < n; i++) {
+            array[i] = new int[m];
+            for (int j = 0; j < m; j++) {
+                array[i][j] = k;
+                k++;
+            }
+            m--;
+        }
+        return array;
+    }
+
     static void sortWithoutNaN(double[] array) {            //2.32 проверка на NaN:если есть-ничего не происходит, иначе - сортировка массива
         int k = 0;
         for (int i = 0; i < array.length; i++) {

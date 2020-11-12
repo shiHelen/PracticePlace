@@ -211,6 +211,14 @@ public class ArrayTasksTest {
     }
 
     @Test
+    public void testCreateTwoDimensionalArray() {                           //2.30 массив из массивов натуральных чисел поменьше
+        assertEquals(ArrayTasks.createTwoDimensionalArray(3), new int[][]{{1, 2, 3}, {4, 5}, {6}});
+        assertEquals(ArrayTasks.createTwoDimensionalArray(2), new int[][]{{1, 2}, {3}});
+        assertEquals(ArrayTasks.createTwoDimensionalArray(1), new int[][]{{1}});
+        assertEquals(ArrayTasks.createTwoDimensionalArray(5), new int[][]{{1, 2, 3, 4, 5}, {6, 7, 8, 9}, {10, 11, 12}, {13, 14}, {15}});
+    }
+
+    @Test
     public void testSortWithoutNaN() {                                    //2.32 проверка на NaN:если есть-ничего не происходит, иначе - сортировка массива
         double[] array = {5.5, 1, 0, 6};
         ArrayTasks.sortWithoutNaN(array);
