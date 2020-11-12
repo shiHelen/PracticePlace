@@ -8,184 +8,167 @@ import static org.testng.Assert.*;
 
 public class ArrayTasksTest {
 
+    ArrayTasks check = new ArrayTasks();
+    private final static double DELTA = 0.0001;
+
     @Test
-    public void testArrayLength() {
-        ArrayTasks check = new ArrayTasks();
-        int[] newArray = check.arrayLength(3);
-        assertEquals(newArray.length, 3);
-        int[] othArray = check.arrayLength(5);
-        assertEquals(othArray.length, 5);
-        assertNotEquals(othArray.length, 4);
+    public void testArrayLength() {                                          //2.1 новый массив заданной размерности
+        assertEquals(check.arrayLength(3).length, 3);
+        assertEquals(check.arrayLength(5).length, 5);
+        assertNotEquals(check.arrayLength(5).length, 4);
     }
 
     @Test
-    public void testGetArithmeticProgression() {
+    public void testGenerateOnesArray() {                                    //2.2 единицы кроме первого и последнего
+        assertEquals(check.generateOnesArray(5), new int[]{2, 1, 1, 1, 2});
+        assertEquals(check.generateOnesArray(1), new int[]{2});
+        assertEquals(check.generateOnesArray(2), new int[]{2, 2});
+        assertEquals(check.generateOnesArray(10), new int[]{2, 1, 1, 1, 1, 1, 1, 1, 1, 2});
+    }
+
+    @Test
+    public void testGenerateArray() {                                        //2.3 возрастающие нечетные числа
+        assertEquals(check.generateArray(5), new int[]{1, 3, 5, 7, 9});
+        assertEquals(check.generateArray(1), new int[]{1});
+        assertEquals(check.generateArray(10), new int[]{1, 3, 5, 7, 9, 11, 13, 15, 17, 19});
+    }
+
+    @Test
+    public void testGenerateArrayDecreasingEven() {                           //2.4 убывающие нечетные числа
+        assertEquals(check.generateArrayDecreasingEven(5), new int[]{10, 8, 6, 4, 2});
+        assertEquals(check.generateArrayDecreasingEven(1), new int[]{2});
+        assertEquals(check.generateArrayDecreasingEven(8), new int[]{16, 14, 12, 10, 8, 6, 4, 2});
+    }
+
+    @Test
+    public void testGenerateArrayFibonacciNumbers() {                         //2.5 н первых чисел Фибоначчи
+        assertEquals(check.generateArrayFibonacciNumbers(6), new int[]{1, 1, 2, 3, 5, 8});
+        assertEquals(check.generateArrayFibonacciNumbers(1), new int[]{1});
+        assertEquals(check.generateArrayFibonacciNumbers(4), new int[]{1, 1, 2, 3});
+    }
+
+    @Test
+    public void testGenerateArraySqrIndex() {                                 //2.6 новый массив квадраты индексов старого
+        assertEquals(check.generateArraySqrIndex(6), new int[]{0, 1, 4, 9, 16, 25});
+        assertEquals(check.generateArraySqrIndex(1), new int[]{0});
+        assertEquals(check.generateArraySqrIndex(4), new int[]{0, 1, 4, 9});
+    }
+
+    @Test
+    public void testQuadraticSolution() {                                    //2.7 решение квадратного уравнения
+        assertEquals(check.quadraticSolution(2, 4, -16), new double[]{-4, 2}, DELTA);
+        assertEquals(check.quadraticSolution(0, 4, -2), new double[]{0.5}, DELTA);
+        assertEquals(check.quadraticSolution(1, 4, 4), new double[]{-2}, DELTA);
+    }
+
+    @Test
+    public void testArrayNumbersWithoutDivisorsThree() {                    //2.8 все числа кроме делителей 3
+        assertEquals(check.arrayNumbersWithoutDivisorsThree(4), new int[]{1, 2, 4, 5});
+        assertEquals(check.arrayNumbersWithoutDivisorsThree(5), new int[]{1, 2, 4, 5, 7});
+        assertEquals(check.arrayNumbersWithoutDivisorsThree(10), new int[]{1, 2, 4, 5, 7, 8, 10, 11, 13, 14});
+    }
+
+    @Test
+    public void testGetArithmeticProgression() {                            //2.9 арифметическая прогрессия
         assertEquals(ArrayTasks.getArithmeticProgression(2, 5, -2), new double[]{5, 3});
         assertEquals(ArrayTasks.getArithmeticProgression(5, -1, 2), new double[]{-1, 1, 3, 5, 7});
         assertEquals(ArrayTasks.getArithmeticProgression(3, 0, 4), new double[]{0, 4, 8});
     }
 
     @Test
-    public void testGenerateOnesArray() {
-        ArrayTasks check = new ArrayTasks();
-        int[] newArray = check.generateOnesArray(5);
-        assertEquals(newArray[0], 2);
-        assertEquals(newArray[1], 1);
-        assertEquals(newArray[2], 1);
-        assertEquals(newArray[3], 1);
-        assertEquals(newArray[4], 2);
+    public void testGeometricProgression() {                               //2.10 геометрическая прогрессия
+        assertEquals(check.geometricProgression(4, 3, 1), new double[]{1, 3, 9, 27}, DELTA);
+        assertEquals(check.geometricProgression(5, 0.4, -2), new double[]{-2, -0.8, -0.32, -0.128, -0.0512}, DELTA);
+        assertEquals(check.geometricProgression(3, -2, -0.1), new double[]{-0.1, 0.2, -0.4}, DELTA);
+    }
+
+        /*
+    @Test
+    public void testArraySimpleNumbers() {           //2.12 не доделано
+        ArrayTasks test = new ArrayTasks();
+        int[] nn = new int[]{2, 3, 5, 7, 9};
+        assertEquals(test.arraySimpleNumbers(10), new ArrayList<>());
+    }
+    */
+
+    @Test
+    public void testSymmetricArray() {                                     //2.13 получить симметричный массив
+        assertEquals(check.symmetricArray(7), new int[]{1, 2, 3, 4, 3, 2, 1});
+        assertEquals(check.symmetricArray(6), new int[]{1, 2, 3, 3, 2, 1});
+        assertEquals(check.symmetricArray(5), new int[]{1, 2, 3, 2, 1});
     }
 
     @Test
-    public void testGenerateArray() {
-        ArrayTasks check = new ArrayTasks();
-        int[] newArray = check.generateArray(5);
-        assertEquals(newArray[0], 1);
-        assertEquals(newArray[1], 3);
-        assertEquals(newArray[2], 5);
-        assertEquals(newArray[3], 7);
-        assertEquals(newArray[4], 9);
-    }
-
-    @Test
-    public void testGenerateArrayDecreasingEven() {
-        ArrayTasks check = new ArrayTasks();
-        int[] newArray = check.generateArrayDecreasingEven(5);
-        assertEquals(newArray[0], 10);
-        assertEquals(newArray[1], 8);
-        assertEquals(newArray[2], 6);
-        assertEquals(newArray[3], 4);
-        assertEquals(newArray[4], 2);
-    }
-
-    @Test
-    public void testGenerateArrayFibonacciNumbers() {
-        ArrayTasks check = new ArrayTasks();
-        int[] newArray = check.generateArrayFibonacciNumbers(6);
-        assertEquals(newArray[0], 1);
-        assertEquals(newArray[1], 1);
-        assertEquals(newArray[2], 2);
-        assertEquals(newArray[3], 3);
-        assertEquals(newArray[4], 5);
-        assertEquals(newArray[5], 8);
-    }
-
-    @Test
-    public void testGenerateArraySqrIndex() {
-        ArrayTasks check = new ArrayTasks();
-        int[] newArray = check.generateArraySqrIndex(6);
-        assertEquals(newArray[0], 0);
-        assertEquals(newArray[1], 1);
-        assertEquals(newArray[2], 4);
-        assertEquals(newArray[3], 9);
-        assertEquals(newArray[4], 16);
-        assertEquals(newArray[5], 25);
-    }
-
-    @Test
-    public void testQuadraticSolution() {
-        ArrayTasks checkSolution = new ArrayTasks();
-        assertEquals(checkSolution.quadraticSolution(2, 4, -16), new double[]{-4, 2}, 0.001);
-        assertEquals(checkSolution.quadraticSolution(0, 4, -2), new double[]{0.5}, 0.001);
-        assertEquals(checkSolution.quadraticSolution(1, 4, 4), new double[]{-2}, 0.001);
-    }
-
-    @Test
-    public void testArrayNumbersWithoutDivisorsThree() {
-        ArrayTasks checkArray = new ArrayTasks();
-        checkArray.arrayNumbersWithoutDivisorsThree(4);
-        assertEquals(checkArray.arrayNumbersWithoutDivisorsThree(4), new int[]{1, 2, 4, 5});
-        assertEquals(checkArray.arrayNumbersWithoutDivisorsThree(5), new int[]{1, 2, 4, 5, 7});
-        assertEquals(checkArray.arrayNumbersWithoutDivisorsThree(10), new int[]{1, 2, 4, 5, 7, 8, 10, 11, 13, 14});
-    }
-
-    @Test
-    public void testGeometricProgression() {
-        ArrayTasks checkProgression = new ArrayTasks();
-        assertEquals(checkProgression.geometricProgression(4, 3, 1), new double[]{1, 3, 9, 27}, 0.0001);
-        assertEquals(checkProgression.geometricProgression(5, 0.4, -2), new double[]{-2, -0.8, -0.32, -0.128, -0.0512}, 0.0001);
-        assertEquals(checkProgression.geometricProgression(3, -2, -0.1), new double[]{-0.1, 0.2, -0.4}, 0.0001);
-    }
-
-    @Test
-    public void testFindNumberInArray() {
-        int[] array = {2, 6, 8, 10, 4};
-        assertFalse(ArrayTasks.findNumberInArray(array, 5));
-        assertTrue(ArrayTasks.findNumberInArray(array, 4));
-        assertFalse(ArrayTasks.findNumberInArray(array, 7));
-    }
-
-    @Test
-    public void testChangeSign() {
+    public void testChangeSign() {                                         //2.14 поменять знаки у входного массива
         int[] array = {2, -6, 8};
         ArrayTasks.changeSign(array);
-        assertEquals(array[0], -2);
-        assertEquals(array[1], 6);
-        assertEquals(array[2], -8);
+        assertEquals(array, new int[]{-2, 6, -8});
+        int[] arrayTwo = {1, 0, 7};
+        ArrayTasks.changeSign(arrayTwo);
+        assertEquals(arrayTwo, new int[]{-1, 0, -7});
+        int[] arrayThree = {-1, -12, -78};
+        ArrayTasks.changeSign(arrayThree);
+        assertEquals(arrayThree, new int[]{1, 12, 78});
     }
 
     @Test
-    public void testCheckNull() {
-        Integer[] array = new Integer[]{2, 5, 6, null};
-        assertTrue(ArrayTasks.checkNull(array));
-        Integer[] arrayToo = new Integer[]{3, 2, 1};
-        assertFalse(ArrayTasks.checkNull(arrayToo));
-        Integer[] arrayNew = new Integer[]{null, 0, 1, null};
-        assertTrue(ArrayTasks.checkNull(arrayNew));
+    public void testFindNumberInArray() {                                 //2.15 найти число в массиве
+        assertFalse(ArrayTasks.findNumberInArray(new int[]{2, 6, 8, 10, 4}, 5));
+        assertTrue(ArrayTasks.findNumberInArray(new int[]{2, 6, 8, 10, 4}, 4));
+        assertFalse(ArrayTasks.findNumberInArray(new int[]{2, 6, 8, 10, 4}, 7));
     }
 
     @Test
-    public void testCountEvenNumbers() {
-        ArrayTasks checkNumbers = new ArrayTasks();
-        int[] arrayOne = new int[]{1, 2, 3, 4, 5, 6, 10};
-        assertEquals(checkNumbers.countEvenNumbers(arrayOne), 4);
-        int[] arrayTwo = new int[]{2, 4, 6, 8, 12, 22, 24, 86, 100};
-        assertEquals(checkNumbers.countEvenNumbers(arrayTwo), 9);
-        int[] arrayThree = new int[]{1, 3, 5, 7, 9, 11, 13, 15, 21, 89, 91};
-        assertEquals(checkNumbers.countEvenNumbers(arrayThree), 0);
+    public void testCheckNull() {                                           //2.16 есть ли null в исходном
+        assertTrue(ArrayTasks.checkNull(new Integer[]{2, 5, 6, null}));
+        assertFalse(ArrayTasks.checkNull(new Integer[]{3, 2, 1}));
+        assertTrue(ArrayTasks.checkNull(new Integer[]{null, 0, 1, null}));
     }
 
     @Test
-    public void testFindMax() {
-        ArrayTasks array = new ArrayTasks();
-        int[] checkArray = new int[]{7, 6, 8, 5, 3, 2, 4, 1};
-        assertEquals(array.findMax(checkArray), new Integer(8));
-        int[] checkTwoArray = new int[]{-7, 6, 87, -5, -3, 2, -4, 1};
-        assertEquals(array.findMax(checkTwoArray), new Integer(87));
-        int[] checkNewArray = new int[]{};
-        assertNull(array.findMax(checkNewArray));
+    public void testCountEvenNumbers() {                                   //2.17 число четных в массиве
+        assertEquals(check.countEvenNumbers(new int[]{1, 2, 3, 4, 5, 6, 10}), 4);
+        assertEquals(check.countEvenNumbers(new int[]{2, 4, 6, 8, 12, 22, 24, 86, 100}), 9);
+        assertEquals(check.countEvenNumbers(new int[]{1, 3, 5, 7, 9, 11, 13, 15, 21, 89, 91}), 0);
     }
 
     @Test
-    public void testSymmetricArray() {
-        ArrayTasks checkSymmetric = new ArrayTasks();
-        assertEquals(checkSymmetric.symmetricArray(7), new int[]{1, 2, 3, 4, 3, 2, 1});
-        assertEquals(checkSymmetric.symmetricArray(6), new int[]{1, 2, 3, 3, 2, 1});
-        assertEquals(checkSymmetric.symmetricArray(5), new int[]{1, 2, 3, 2, 1});
+    public void testFindMax() {                                            //2.18 максимальный элемент
+        assertEquals(check.findMax(new int[]{7, 6, 8, 5, 3, 2, 4, 1}), new Integer(8));
+        assertEquals(check.findMax(new int[]{-7, 6, 87, -5, -3, 2, -4, 1}), new Integer(87));
+        assertNull(check.findMax(new int[]{}));
     }
 
     @Test
-    public void testSumOfEvenIndex() {
-        ArrayTasks checkSum = new ArrayTasks();
-        assertEquals(checkSum.sumOfEvenIndex(new int[]{1, 2, 3, 4, 5, 6, 10}), 19);
-        assertEquals(checkSum.sumOfEvenIndex(new int[]{11, 32, 43, -4, 58, -76, 870}), 982);
-        assertEquals(checkSum.sumOfEvenIndex(new int[]{-1, 2, -3, 4, -5, 6, -10}), -19);
+    public void testSumOfEvenIndex() {                                    //2.19 сумма всех с четными индексами
+        assertEquals(check.sumOfEvenIndex(new int[]{1, 2, 3, 4, 5, 6, 10}), 19);
+        assertEquals(check.sumOfEvenIndex(new int[]{11, 32, 43, -4, 58, -76, 870}), 982);
+        assertEquals(check.sumOfEvenIndex(new int[]{-1, 2, -3, 4, -5, 6, -10}), -19);
     }
 
     @Test
-    public void testBitwiseNOT() {
-        int[] array = {12, 15, 56};
-        ArrayTasks.bitwiseNOT(array);
-        assertEquals(array, new int[]{-13, -16, -57});
-        ArrayTasks.bitwiseNOT(array);
-        assertEquals(array, new int[]{12, 15, 56});
-        int[] newArray = {-2, 5, -6};
-        ArrayTasks.bitwiseNOT(newArray);
-        assertEquals(newArray, new int[]{1, -6, 5});
+    public void testFindMoreDivisors() {                                  //2.20 у первого или последнего больше делителей
+        assertFalse(ArrayTasks.findMoreDivisors(new int[]{27, 3, 9, 8, 2, 4, 6, 12, 24}));
+        assertTrue(ArrayTasks.findMoreDivisors(new int[]{12, 4, 3, 2, 6, 1, 17, 18, 25}));
+        assertFalse(ArrayTasks.findMoreDivisors(new int[]{27, 3, 9, 8, 6, 12, 24}));
     }
 
     @Test
-    public void testExchangedMaxAndMin() {
+    public void testFindMostCommonElement() {                              //2.21 что чаще всего встречается
+        assertEquals(check.findMostCommonElement(new int[]{1, 1, 1, 2, 3, 3, 3, 4, 7, 6, 5}), 1);
+        assertEquals(check.findMostCommonElement(new int[]{1, 2, 3, 4, 5, 11, 47, 89, 5, 32, 5, 4}), 4);
+        assertEquals(check.findMostCommonElement(new int[]{0, -2, 3, 0, -5, 0, -4, 6, 0, 6}), 0);
+    }
+
+    @Test
+    public void testFindIndexOfNumber() {                                  //2.22 первое вхождение числа в массив
+        assertEquals(ArrayTasks.findIndexOfNumber(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 20, 22, 11, 12, 89, 100}, 5), 4);
+        assertEquals(ArrayTasks.findIndexOfNumber(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 20, 22, 11, 12, 89, 100}, 11), 10);
+        assertEquals(ArrayTasks.findIndexOfNumber(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 20, 22, 11, 12, 89, 100}, 89), 18);
+    }
+
+    @Test
+    public void testExchangedMaxAndMin() {                                  //2.23 поменять местами максимальный и минимальный
         int[] arrayFirst = {1, 2, 3, 5, 6};
         ArrayTasks.exchangedMaxAndMin(arrayFirst);
         assertEquals(arrayFirst, new int[]{6, 2, 3, 5, 1});
@@ -198,15 +181,19 @@ public class ArrayTasksTest {
     }
 
     @Test
-    public void testFindIndexOfNumber() {
-        int[] checkArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 20, 22, 11, 12, 89, 100};
-        assertEquals(ArrayTasks.findIndexOfNumber(checkArray, 5), 4);
-        assertEquals(ArrayTasks.findIndexOfNumber(checkArray, 11), 10);
-        assertEquals(ArrayTasks.findIndexOfNumber(checkArray, 89), 18);
+    public void testBitwiseNOT() {                                          //2.24 побитовое отрицание с изменением исходного
+        int[] array = {12, 15, 56};
+        ArrayTasks.bitwiseNOT(array);
+        assertEquals(array, new int[]{-13, -16, -57});
+        ArrayTasks.bitwiseNOT(array);
+        assertEquals(array, new int[]{12, 15, 56});
+        int[] newArray = {-2, 5, -6};
+        ArrayTasks.bitwiseNOT(newArray);
+        assertEquals(newArray, new int[]{1, -6, 5});
     }
 
     @Test
-    public void testArrayBitwiseNot() {
+    public void testArrayBitwiseNot() {                                     //2.25 побитовое отрицание исходного без изменения исходного
         int[] yesArray = {7, 16, -9};
         ArrayTasks check = new ArrayTasks();
         assertEquals(check.arrayBitwiseNot(yesArray), new int[]{-8, -17, 8});
@@ -216,36 +203,15 @@ public class ArrayTasksTest {
     }
 
     @Test
-    public void testFindMoreDivisors() {
-        int[] numbersOne = {27, 3, 9, 8, 2, 4, 6, 12, 24};
-        assertFalse(ArrayTasks.findMoreDivisors(numbersOne));
-        int[] numbersTwo = {12, 4, 3, 2, 6, 1, 17, 18, 25};
-        assertTrue(ArrayTasks.findMoreDivisors(numbersTwo));
-        int[] numbersThree = {27, 3, 9, 8, 6, 12, 24};
-        assertFalse(ArrayTasks.findMoreDivisors(numbersThree));
+    public void testFindEvenNumbers() {                                     //2.27 true-четный, false-нечетный
+        assertEquals(ArrayTasks.findEvenNumbers(new int[]{1, 2, 3, 4, 5}), new boolean[]{false, true, false, true, false});
+        assertEquals(ArrayTasks.findEvenNumbers(new int[]{2, 4, 6, 8, 10}), new boolean[]{true, true, true, true, true});
+        assertEquals(ArrayTasks.findEvenNumbers(new int[]{1, 3, 5, 7, 9}), new boolean[]{false, false, false, false, false});
+        assertEquals(ArrayTasks.findEvenNumbers(new int[]{-1, 3, -5, 4, 0}), new boolean[]{false, false, false, true, true});
     }
 
     @Test
-    public void testFindMostCommonElement() {
-        int[] checkNumbers = {1, 1, 1, 2, 3, 3, 3, 4, 7, 6, 5};
-        ArrayTasks check = new ArrayTasks();
-        assertEquals(check.findMostCommonElement(checkNumbers), 1);
-        int[] checkNumbersTwo = {1, 2, 3, 4, 5, 11, 47, 89, 5, 32, 5, 4};
-        assertEquals(check.findMostCommonElement(checkNumbersTwo), 4);
-        int[] checkNumbersThree = {0, -2, 3, 0, -5, 0, -4, 6, 0, 6};
-        assertEquals(check.findMostCommonElement(checkNumbersThree), 0);
-    }
-    /*
-    @Test
-    public void testArraySimpleNumbers() {
-        ArrayTasks test = new ArrayTasks();
-        int[] nn = new int[]{2, 3, 5, 7, 9};
-        assertEquals(test.arraySimpleNumbers(10), new ArrayList<>());
-    }
-    */
-
-    @Test
-    public void testSortWithoutNaN() {
+    public void testSortWithoutNaN() {                                    //2.32 проверка на NaN:если есть-ничего не происходит, иначе - сортировка массива
         double[] array = {5.5, 1, 0, 6};
         ArrayTasks.sortWithoutNaN(array);
         assertEquals(array, new double[]{0, 1, 5.5, 6});
@@ -259,17 +225,5 @@ public class ArrayTasksTest {
         double[] arrayTwo = {1.4, 2.3, 4.5, Double.NaN, 7.9, Double.NaN, 11, Double.NaN, -8};
         ArrayTasks.sortWithoutNaN(arrayTwo);
         assertEquals(arrayTwo, new double[]{1.4, 2.3, 4.5, Double.NaN, 7.9, Double.NaN, 11, Double.NaN, -8});
-    }
-
-    @Test
-    public void testFindEvenNumbers() {
-        int[] arrayOne = {1, 2, 3, 4, 5};
-        assertEquals(ArrayTasks.findEvenNumbers(arrayOne), new boolean[]{false, true, false, true, false});
-        int[] arrayTwo = {2, 4, 6, 8, 10};
-        assertEquals(ArrayTasks.findEvenNumbers(arrayTwo), new boolean[]{true, true, true, true, true});
-        int[] arrayThree = {1, 3, 5, 7, 9};
-        assertEquals(ArrayTasks.findEvenNumbers(arrayThree), new boolean[]{false, false, false, false, false});
-        int[] arrayFour = {-1, 3, -5, 4, 0};
-        assertEquals(ArrayTasks.findEvenNumbers(arrayFour), new boolean[]{false, false, false, true, true});
     }
 }
