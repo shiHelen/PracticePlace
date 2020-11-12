@@ -202,6 +202,13 @@ public class ArrayTasksTest {
     }
 
     @Test
+    public void testSumNextElements() {                                         //2.26 сумма соседних элементов
+        assertEquals(ArrayTasks.sumNextElements(new int[]{10, 20, 30}), new int[]{30, 30});
+        assertEquals(ArrayTasks.sumNextElements(new int[]{0, -7, 30}), new int[]{-7, 30});
+        assertEquals(ArrayTasks.sumNextElements(new int[]{1, 2, 3, 4, -8, 0, 9}), new int[]{3, 7, -8, 9});
+    }
+
+    @Test
     public void testFindEvenNumbers() {                                     //2.27 true-четный, false-нечетный
         assertEquals(ArrayTasks.findEvenNumbers(new int[]{1, 2, 3, 4, 5}), new boolean[]{false, true, false, true, false});
         assertEquals(ArrayTasks.findEvenNumbers(new int[]{2, 4, 6, 8, 10}), new boolean[]{true, true, true, true, true});

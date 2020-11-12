@@ -310,6 +310,22 @@ public class ArrayTasks {
         return notArray;
     }
 
+    public static int[] sumNextElements(int[] array) {                  //2.26 сумма соседних элементов
+        if (array.length % 2 == 0) {
+            int[] resultArray = new int[array.length / 2];
+            for (int i = 0, j = 0; j != array.length; i++, j += 2) {
+                resultArray[i] = array[j] + array[j + 1];
+            }
+            return resultArray;
+        }
+        int[] resultArray = new int[array.length / 2 + 1];
+        for (int i = 0, j = 0; j != array.length - 1; i++, j += 2) {
+            resultArray[i] = array[j] + array[j + 1];
+        }
+        resultArray[resultArray.length - 1] = array[array.length - 1];
+        return resultArray;
+    }
+
     static boolean[] findEvenNumbers(int[] array) {             //2.27 true-четный, false-нечетный
         boolean[] bool = new boolean[array.length];
         for (int i = 0; i < array.length; i++) {
@@ -334,7 +350,7 @@ public class ArrayTasks {
         return array;
     }
 
-    static int[][] createTwoDimensionalArray(int n) {           //2.30 массив из массивов натуральных чисел поменьше
+    static int[][] createTwoDimensionalArray(int n) {                       //2.30 массив из массивов натуральных чисел поменьше
         int[][] array = new int[n][];
         int m = n;
         int k = 1;
@@ -349,7 +365,7 @@ public class ArrayTasks {
         return array;
     }
 
-    static void sortWithoutNaN(double[] array) {            //2.32 проверка на NaN:если есть-ничего не происходит, иначе - сортировка массива
+    static void sortWithoutNaN(double[] array) {                    //2.32 проверка на NaN:если есть-ничего не происходит, иначе - сортировка массива
         int k = 0;
         for (int i = 0; i < array.length; i++) {
             if (Double.isNaN(array[i])) {
@@ -361,14 +377,7 @@ public class ArrayTasks {
         }
     }
 
-    public static void main(String[] args) {
-        String[] strs = {"dead inside", "already", "just stop"};        //вызов 2.33
-        printStrings(strs);
-        int[] numbers = {16, 17, 18, 15, 14, 13, 12, 11};               //вызов 2.35
-        printHexNumbers(numbers);
-    }
-
-    static void printStrings(String[] strs) {                   //2.33 вывод в консоль массива строк
+    static void printStrings(String[] strs) {                       //2.33 вывод в консоль массива строк
         for (String s : strs) {
             System.out.println(s);
         }
@@ -387,5 +396,12 @@ public class ArrayTasks {
 
     static void printHexNumbers(int[] values) {                   //2.35 вывод в консоль массива целых чисел в шестнадцатеричной форме
         Arrays.stream(values).forEach(i -> System.out.println(Integer.toHexString(i)));
+    }
+
+    public static void main(String[] args) {
+        String[] strs = {"dead inside", "already", "just stop"};        //вызов 2.33
+        printStrings(strs);
+        int[] numbers = {16, 17, 18, 15, 14, 13, 12, 11};               //вызов 2.35
+        printHexNumbers(numbers);
     }
 }
