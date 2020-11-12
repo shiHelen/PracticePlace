@@ -1,6 +1,7 @@
 package ru.ssau.tk.oop.task0;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static java.lang.Math.max;
@@ -348,9 +349,11 @@ public class ArrayTasks {
         }
     }
 
-    public static void main(String[] args) {                    //вызов 2.33
-        String[] strs = {"dead inside", "already", "just stop"};
+    public static void main(String[] args) {
+        String[] strs = {"dead inside", "already", "just stop"};        //вызов 2.33
         printStrings(strs);
+        int[] numbers = {16, 17, 18, 15, 14, 13, 12, 11};               //вызов 2.35
+        printHexNumbers(numbers);
     }
 
     static void printStrings(String[] strs) {                   //2.33 вывод в консоль массива строк
@@ -368,5 +371,9 @@ public class ArrayTasks {
             }
         }
         return multiply;
+    }
+
+    static void printHexNumbers(int[] values) {                   //2.35 вывод в консоль массива целых чисел в шестнадцатеричной форме
+        Arrays.stream(values).forEach(i -> System.out.println(Integer.toHexString(i)));
     }
 }
