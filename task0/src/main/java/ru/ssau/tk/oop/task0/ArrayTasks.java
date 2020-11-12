@@ -322,6 +322,18 @@ public class ArrayTasks {
         return bool;
     }
 
+    public static int[] getCycleOfNaturalNumbers(int size, int startingIndex) {         //2.29 цикл натуральных чисел по начальным параметрам
+        if (startingIndex < 0 || startingIndex >= size) {
+            throw new IllegalArgumentException("Invalid starting index!");
+        }
+        int[] array = new int[size];
+        int diff = startingIndex - 1;
+        for (int i = 0; i != size; i++, startingIndex++) {
+            array[startingIndex % size] = startingIndex - diff;
+        }
+        return array;
+    }
+
     static int[][] createTwoDimensionalArray(int n) {           //2.30 массив из массивов натуральных чисел поменьше
         int[][] array = new int[n][];
         int m = n;

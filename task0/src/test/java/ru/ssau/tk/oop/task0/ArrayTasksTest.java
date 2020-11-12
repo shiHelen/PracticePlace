@@ -195,7 +195,6 @@ public class ArrayTasksTest {
     @Test
     public void testArrayBitwiseNot() {                                     //2.25 побитовое отрицание исходного без изменения исходного
         int[] yesArray = {7, 16, -9};
-        ArrayTasks check = new ArrayTasks();
         assertEquals(check.arrayBitwiseNot(yesArray), new int[]{-8, -17, 8});
         assertEquals(check.arrayBitwiseNot(check.arrayBitwiseNot(yesArray)), new int[]{7, 16, -9});
         int[] yesArrayTwo = {17, -1, 2, 4};
@@ -208,6 +207,15 @@ public class ArrayTasksTest {
         assertEquals(ArrayTasks.findEvenNumbers(new int[]{2, 4, 6, 8, 10}), new boolean[]{true, true, true, true, true});
         assertEquals(ArrayTasks.findEvenNumbers(new int[]{1, 3, 5, 7, 9}), new boolean[]{false, false, false, false, false});
         assertEquals(ArrayTasks.findEvenNumbers(new int[]{-1, 3, -5, 4, 0}), new boolean[]{false, false, false, true, true});
+    }
+
+    @Test
+    public void testGetCycleOfNaturalNumbers() {                                //2.29 цикл натуральных чисел по начальным параметрам
+        assertEquals(ArrayTasks.getCycleOfNaturalNumbers(5, 3), new int[]{3, 4, 5, 1, 2});
+        assertEquals(ArrayTasks.getCycleOfNaturalNumbers(1, 0), new int[]{1});
+        assertEquals(ArrayTasks.getCycleOfNaturalNumbers(5, 4), new int[]{2, 3, 4, 5, 1});
+        assertEquals(ArrayTasks.getCycleOfNaturalNumbers(7, 6), new int[]{2, 3, 4, 5, 6, 7, 1});
+        assertEquals(ArrayTasks.getCycleOfNaturalNumbers(3, 1), new int[]{3, 1, 2});
     }
 
     @Test
