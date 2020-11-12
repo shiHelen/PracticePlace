@@ -217,6 +217,21 @@ public class ArrayTasksTest {
     }
 
     @Test
+    public void testConvertLongToTwoInts() {                                //2.28 конвертация из long в int и обратно
+        assertEquals(ArrayTasks.convertLongToTwoInts(-2L), new int[]{-1, -2});
+        assertEquals(ArrayTasks.convertLongToTwoInts(126L), new int[]{0, 126});
+        assertEquals(ArrayTasks.convertLongToTwoInts(1L), new int[]{0, 1});
+        assertEquals(ArrayTasks.convertLongToTwoInts(0), new int[]{0, 0});
+    }
+
+    @Test
+    public void testConvertTwoIntsToLong() {
+        assertEquals(ArrayTasks.convertTwoIntsToLong(1, -2), -2);
+        assertEquals(ArrayTasks.convertTwoIntsToLong(2, 2), 8589934594L);
+        assertEquals(ArrayTasks.convertTwoIntsToLong(0, 1), 1);
+    }
+
+    @Test
     public void testGetCycleOfNaturalNumbers() {                                //2.29 цикл натуральных чисел по начальным параметрам
         assertEquals(ArrayTasks.getCycleOfNaturalNumbers(5, 3), new int[]{3, 4, 5, 1, 2});
         assertEquals(ArrayTasks.getCycleOfNaturalNumbers(1, 0), new int[]{1});

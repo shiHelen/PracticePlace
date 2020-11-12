@@ -338,6 +338,14 @@ public class ArrayTasks {
         return bool;
     }
 
+    public static int[] convertLongToTwoInts(long number) {             //2.28 конвертация из long в int и обратно
+        return new int[]{(int) (number >> 32), (int) number};
+    }
+
+    public static long convertTwoIntsToLong(int first, int last) {
+        return ((long) last | (long) first << 32);
+    }
+
     public static int[] getCycleOfNaturalNumbers(int size, int startingIndex) {         //2.29 цикл натуральных чисел по начальным параметрам
         if (startingIndex < 0 || startingIndex >= size) {
             throw new IllegalArgumentException("Invalid starting index!");
