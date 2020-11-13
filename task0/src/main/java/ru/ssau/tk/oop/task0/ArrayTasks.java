@@ -1,6 +1,7 @@
 package ru.ssau.tk.oop.task0;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.sqrt;
@@ -142,21 +143,24 @@ public class ArrayTasks {
         return arrayDivisors;
     }
 
-        /*
-    public int[] arraySimpleNumbers(int c) {    //2.12 не доделано
-        List<Integer> simple = new ;
-        for (int i = 2; i < c; i++) {
-            for (int j = 2; j < i; j++) {
-                if (i % j == 0) {
-                    continue;
-                }
-            }
-            simple.add(i);
+    public LinkedList<Integer> arraySimpleNumbers(int c) {              //2.12 все положительные простые числа до входного включительно
+        if (c < 2) return new LinkedList<Integer>();
+        LinkedList<Integer> primes = new LinkedList<Integer>();
+        LinkedList<Integer> nums = new LinkedList<Integer>();
+
+        for (int i = 2; i <= c; i++) { //unoptimized
+            nums.add(i);
         }
-        int[] simpleArray = simple.toArray(new int[simple.size()]);
-        return simpleArray;
+
+        while (nums.size() > 0) {
+            int nextPrime = nums.remove();
+            for (int i = nextPrime * nextPrime; i <= c; i += nextPrime) {
+                nums.removeFirstOccurrence(i);
+            }
+            primes.add(nextPrime);
+        }
+        return primes;
     }
-     */
 
     public int[] symmetricArray(int l) {                //2.13 получить симметричный массив
         int[] symmetric = new int[l];

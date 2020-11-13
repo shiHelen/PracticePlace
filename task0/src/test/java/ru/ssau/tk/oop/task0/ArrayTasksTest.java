@@ -3,6 +3,7 @@ package ru.ssau.tk.oop.task0;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import static org.testng.Assert.*;
 
@@ -91,14 +92,31 @@ public class ArrayTasksTest {
         assertEquals(check.getArrayDivisors(-7), new int[]{1, -1, -7, 7});
         assertEquals(check.getArrayDivisors(-2), new int[]{1, -1, -2, 2});
     }
-        /*
+
     @Test
-    public void testArraySimpleNumbers() {           //2.12 не доделано
-        ArrayTasks test = new ArrayTasks();
-        int[] nn = new int[]{2, 3, 5, 7, 9};
-        assertEquals(test.arraySimpleNumbers(10), new ArrayList<>());
+    public void testArraySimpleNumbers() {                                      //2.12 все положительные простые числа до входного включительно
+        LinkedList<Integer> checkPrimes = new LinkedList<Integer>();
+        checkPrimes.add(2);
+        checkPrimes.add(3);
+        checkPrimes.add(5);
+        assertEquals(check.arraySimpleNumbers(5), checkPrimes);
+
+        LinkedList<Integer> checkNewPrimes = new LinkedList<Integer>();
+        checkNewPrimes.add(2);
+        checkNewPrimes.add(3);
+        checkNewPrimes.add(5);
+        checkNewPrimes.add(7);
+        assertEquals(check.arraySimpleNumbers(7), checkNewPrimes);
+
+        LinkedList<Integer> checkOthPrimes = new LinkedList<Integer>();
+        checkOthPrimes.add(2);
+        checkOthPrimes.add(3);
+        checkOthPrimes.add(5);
+        checkOthPrimes.add(7);
+        checkOthPrimes.add(11);
+        assertEquals(check.arraySimpleNumbers(12), checkOthPrimes);
     }
-    */
+
 
     @Test
     public void testSymmetricArray() {                                     //2.13 получить симметричный массив
