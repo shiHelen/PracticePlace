@@ -82,6 +82,15 @@ public class ArrayTasksTest {
         assertEquals(check.geometricProgression(3, -2, -0.1), new double[]{-0.1, 0.2, -0.4}, DELTA);
     }
 
+
+    @Test
+    public void testGetArrayDivisors() {                                        //2.11 все делители целого числа с
+        assertEquals(check.getArrayDivisors(15), new int[]{1, -1, 3, -3, -5, 5, -15, 15});
+        assertEquals(check.getArrayDivisors(1), new int[]{-1, -1});
+        assertEquals(check.getArrayDivisors(3), new int[]{1, -1, -3, 3});
+        assertEquals(check.getArrayDivisors(-7), new int[]{1, -1, -7, 7});
+        assertEquals(check.getArrayDivisors(-2), new int[]{1, -1, -2, 2});
+    }
         /*
     @Test
     public void testArraySimpleNumbers() {           //2.12 не доделано

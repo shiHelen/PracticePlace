@@ -1,10 +1,8 @@
 package ru.ssau.tk.oop.task0;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-import static java.lang.Math.max;
+import static java.lang.Math.abs;
 import static java.lang.Math.sqrt;
 
 public class ArrayTasks {
@@ -119,22 +117,30 @@ public class ArrayTasks {
         return bProgression;
     }
 
-    /*
-    public double[] getArrayDivisors(int c) {     //2.11 не доделано
-        //разложить входное число на простые множители
-        //найти число делителей входного числа
-        //создать массив с размерностью числа делителей
-        //заполнить массив простыми множителями делителями и всевозможными их произведениями
-        double[] divisors = new double[]{};
-        int i = 1;
-        divisors[0] = c;
-        while (divisors[i] < sqrt(c)) {
-            divisors[i] += c;
-            i++;
+    public int[] getArrayDivisors(int c) {                                              //2.11 все делители целого числа с
+        int count = 0;
+        for (int i = 1; i <= (int) sqrt(abs(c)); i++) {
+            if (abs(c) % i == 0) {
+                count += 1;
+            }
         }
-        return divisors;
+        count = 2 * count - (sqrt(abs(c)) == (int) sqrt(abs(c)) ? 1 : 0);
+        count *= 2;
+        int[] arrayDivisors = new int[count];
+        for (int j = 0, k = 0; j != (int) sqrt(abs(c)); j++) {
+            if (abs(c) % (j + 1) == 0) {
+                arrayDivisors[k] = j + 1;
+                arrayDivisors[count - 1 - k] = abs(c) / (j + 1);
+                k += 1;
+            }
+            if (abs(c) % (j + 1) == 0) {
+                arrayDivisors[k] = -(j + 1);
+                arrayDivisors[count - 1 - k] = -(abs(c) / (j + 1));
+                k += 1;
+            }
+        }
+        return arrayDivisors;
     }
-    */
 
         /*
     public int[] arraySimpleNumbers(int c) {    //2.12 не доделано
