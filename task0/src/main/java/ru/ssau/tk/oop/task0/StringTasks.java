@@ -14,6 +14,15 @@ public class StringTasks {
         }
     }
 
+    void sameStrings() {
+        String s1 = "A";
+        String s2 = new String(s1);
+
+        System.out.println(s1 == s2);
+        System.out.println(s1.equals(s2));
+
+    }
+
     public static StringTasks check = new StringTasks();
 
     public static void main(String[] args) {
@@ -24,8 +33,11 @@ public class StringTasks {
         System.out.println("");
         check.outputSeparately("it works yeees!");
         */
+        /* вызов метода 3.2 все работает, но уже не актуально, поэтому в комментарии
         check.getArrayOfBytes("проверка");
         System.out.println("");
         check.getArrayOfBytes("something");
+        */
+        check.sameStrings();
     }
 }
