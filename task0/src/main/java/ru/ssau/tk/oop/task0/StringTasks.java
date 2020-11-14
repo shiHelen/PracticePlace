@@ -14,13 +14,16 @@ public class StringTasks {
         }
     }
 
-    void sameStrings() {
+    public void sameStrings() {                        //3.3 сравнение работы "==" и equals()
         String s1 = "A";
         String s2 = new String(s1);
-
         System.out.println(s1 == s2);
         System.out.println(s1.equals(s2));
+    }
 
+    public boolean isPalindrome(String str) {           //3.4 является ли палиндромом
+        String palindrome = new StringBuilder(str).reverse().toString();
+        return str.equals(palindrome);
     }
 
     public static StringTasks check = new StringTasks();
@@ -38,6 +41,7 @@ public class StringTasks {
         System.out.println("");
         check.getArrayOfBytes("something");
         */
-        check.sameStrings();
+        // check.sameStrings();  вызов 3.3
+        System.out.println(check.isPalindrome("121"));
     }
 }
