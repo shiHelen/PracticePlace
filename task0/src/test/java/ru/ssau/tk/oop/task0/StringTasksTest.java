@@ -16,4 +16,16 @@ public class StringTasksTest {
         assertFalse(check.isPalindrome("AbC"));
         assertFalse(check.isPalindrome("Aaa"));
     }
+
+    @Test
+    public void testIsSameRegister() {
+        assertFalse(check.isSameRegister("111", "111"));
+        assertTrue(check.isSameRegister("AAA", "aaa"));
+        assertTrue(check.isSameRegister("AaA", "aaA"));
+        assertTrue(check.isSameRegister("Aaa", "aaa"));
+        assertTrue(check.isSameRegister("bbb", "BBB"));
+        assertFalse(check.isSameRegister("AAA", "aa"));
+        assertFalse(check.isSameRegister("", "aaa"));
+        assertFalse(check.isSameRegister("", ""));
+    }
 }

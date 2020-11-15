@@ -26,6 +26,10 @@ public class StringTasks {
         return str.equals(palindrome);
     }
 
+    public boolean isSameRegister(String strFirst, String strSecond) {
+        return strFirst.equalsIgnoreCase(strSecond) && !strFirst.equals(strSecond);
+    }
+
     public static StringTasks check = new StringTasks();
 
     public static void main(String[] args) {
@@ -42,6 +46,7 @@ public class StringTasks {
         check.getArrayOfBytes("something");
         */
         // check.sameStrings();  вызов 3.3
-        System.out.println(check.isPalindrome("121"));
+        // System.out.println(check.isPalindrome("121")); вызов 3.4
+        System.out.println(check.isSameRegister("aaa","Aaa"));
     }
 }
