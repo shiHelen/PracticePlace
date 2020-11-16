@@ -46,6 +46,10 @@ public class StringTasks {
         return str.indexOf(subStr);
     }
 
+    public static int findSubstringInSecondHalfString(String str, String substring) {       //3.8 поиск подстроки во второй половине первой строки
+        return str.indexOf(substring, str.length() / 2);
+    }
+
     public static StringTasks check = new StringTasks();
 
     public static void main(String[] args) {
