@@ -30,7 +30,7 @@ public class StringTasks {
         return strFirst.equalsIgnoreCase(strSecond) && !strFirst.equals(strSecond);
     }
 
-    public static void learningCharacterEscaping() {
+    public static void learningCharacterEscaping() {                        //3.6 изучение экранирования символов
         int i = 0;
         System.out.println("Символ\t№" + ++i);   //символ табуляции
         System.out.println("Символ\b№" + ++i);   //символ удаления последнего символа в строке
@@ -40,6 +40,10 @@ public class StringTasks {
         System.out.println("Символ\"№" + ++i);   //вывести "
         System.out.println("Символ\\№" + ++i);   //вывести \, а не считать ее частью кода
 
+    }
+
+    public static int findSubstringInString(String str, String subStr) {        //3.7 поиск подстроки в строке (индекс начала подстроки)
+        return str.indexOf(subStr);
     }
 
     public static StringTasks check = new StringTasks();
@@ -60,6 +64,6 @@ public class StringTasks {
         // check.sameStrings();  вызов 3.3
         // System.out.println(check.isPalindrome("121")); вызов 3.4
         // System.out.println(check.isSameRegister("aaa", "Aaa"));  вызов 3.5
-        learningCharacterEscaping();
+        // learningCharacterEscaping();                         вызов 3.6
     }
 }

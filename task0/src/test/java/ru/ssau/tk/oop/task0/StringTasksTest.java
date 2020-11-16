@@ -28,4 +28,13 @@ public class StringTasksTest {
         assertFalse(check.isSameRegister("", "aaa"));
         assertFalse(check.isSameRegister("", ""));
     }
+
+    @Test
+    public void testFindSubstringInString() {
+        assertEquals(StringTasks.findSubstringInString("abcabcabc", "ca"), 2);
+        assertEquals(StringTasks.findSubstringInString("akakakaka", "ka"), 1);
+        assertEquals(StringTasks.findSubstringInString("kitten", "n"), 5);
+        assertEquals(StringTasks.findSubstringInString("trouble", ""), 0);
+        assertEquals(StringTasks.findSubstringInString("darkness", "b"), -1);
+    }
 }
