@@ -56,12 +56,25 @@ public class StringTasks {
 
     static int countStrings(String[] array, String prefix, String postfix) {                //3.10 количество строк начинающихся со строки-префикса и заканчивающихся строкой-постфиксом
         int count = 0;
-        for (String string : array) {
-            if (string.startsWith(prefix) && string.endsWith(postfix)) {
+        for (String str : array) {
+            if (str.startsWith(prefix) && str.endsWith(postfix)) {
                 count++;
             }
         }
         return count;
+    }
+
+    static int newCountOfStrings(String[] array, String prefix, String postfix) {               //3.11 количество строк, содержащихся в массиве и начинающихся со строки-префикса и заканчивающихся строкой-постфиксом, игнорируя все пробельные символы в начале и в конце строки
+        int number = 0;
+        for (int i = 0; i < array.length; i++) {
+            array[i] = array[i].trim();
+        }
+        for (String str : array) {
+            if (str.startsWith(prefix) && str.endsWith(postfix)) {
+                number++;
+            }
+        }
+        return number;
     }
 
     public static StringTasks check = new StringTasks();

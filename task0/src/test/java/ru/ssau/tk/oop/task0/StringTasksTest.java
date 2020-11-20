@@ -61,4 +61,11 @@ public class StringTasksTest {
         assertEquals(StringTasks.countStrings(new String[]{"river", "dog", "dry long", "respect bigger", "among"}, "r", "r"), 2);
         assertEquals(StringTasks.countStrings(new String[]{"river", "dog", "dry long", "respect bigger", "among"}, "l", "l"), 0);
     }
+
+    @Test
+    public void testNewCountOfStrings() {                                                               //3.11 количество строк, содержащихся в массиве и начинающихся со строки-префикса и заканчивающихся строкой-постфиксом, игнорируя все пробельные символы в начале и в конце строки
+        assertEquals(StringTasks.newCountOfStrings(new String[]{" river", "dog ", " dry long", "respect bigger ", "among"}, "d", "g"), 2);
+        assertEquals(StringTasks.newCountOfStrings(new String[]{"river  ", "dog    ", "dry long", "respect bigger", "among"}, "r", "r"), 2);
+        assertEquals(StringTasks.newCountOfStrings(new String[]{"    river", "    dog", "    dry long", "respect bigger  ", "among"}, "l", "l"), 0);
+    }
 }
