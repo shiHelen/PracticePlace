@@ -54,6 +54,16 @@ public class StringTasks {
         return str.lastIndexOf(subStr, str.length() / 2);
     }
 
+    static int countStrings(String[] array, String prefix, String postfix) {                //3.10 количество строк начинающихся со строки-префикса и заканчивающихся строкой-постфиксом
+        int count = 0;
+        for (String string : array) {
+            if (string.startsWith(prefix) && string.endsWith(postfix)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     public static StringTasks check = new StringTasks();
 
     public static void main(String[] args) {

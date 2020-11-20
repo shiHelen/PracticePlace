@@ -8,7 +8,7 @@ public class StringTasksTest {
     public static StringTasks check = new StringTasks();
 
     @Test
-    public void testIsPalindrome() {
+    public void testIsPalindrome() {                                    //3.4 является ли палиндромом
         assertTrue(check.isPalindrome("111"));
         assertTrue(check.isPalindrome("000"));
         assertTrue(check.isPalindrome("aba"));
@@ -18,7 +18,7 @@ public class StringTasksTest {
     }
 
     @Test
-    public void testIsSameRegister() {
+    public void testIsSameRegister() {                                  //3.5 сравнение регистров
         assertFalse(check.isSameRegister("111", "111"));
         assertTrue(check.isSameRegister("AAA", "aaa"));
         assertTrue(check.isSameRegister("AaA", "aaA"));
@@ -30,7 +30,7 @@ public class StringTasksTest {
     }
 
     @Test
-    public void testFindSubstringInString() {
+    public void testFindSubstringInString() {                                                           //3.7 поиск подстроки в строке (индекс начала подстроки)
         assertEquals(StringTasks.findSubstringInString("abcabcabc", "ca"), 2);
         assertEquals(StringTasks.findSubstringInString("akakakaka", "ka"), 1);
         assertEquals(StringTasks.findSubstringInString("kitten", "n"), 5);
@@ -39,7 +39,7 @@ public class StringTasksTest {
     }
 
     @Test
-    public void testFindSubstringInSecondHalfString() {
+    public void testFindSubstringInSecondHalfString() {                                                 //3.8 поиск подстроки во второй половине первой строки
         assertEquals(StringTasks.findSubstringInSecondHalfString("alone", "one"), 2);
         assertEquals(StringTasks.findSubstringInSecondHalfString("cosmos", "mos"), 3);
         assertEquals(StringTasks.findSubstringInSecondHalfString("equipment", "ment"), 5);
@@ -48,10 +48,17 @@ public class StringTasksTest {
     }
 
     @Test
-    public void testLastInFirstLineOfFirstLine() {
+    public void testLastInFirstLineOfFirstLine() {                                                      //3.9 возвращающий индекс последнего вхождения второй строки в первую половину первой строки
         assertEquals(StringTasks.lastInFirstLineOfFirstLine("abcabcabcabc", "ab"), 6);
         assertEquals(StringTasks.lastInFirstLineOfFirstLine("clock", ""), 2);
         assertEquals(StringTasks.lastInFirstLineOfFirstLine("boolean", "a"), -1);
         assertEquals(StringTasks.lastInFirstLineOfFirstLine("zooland", "o"), 2);
+    }
+
+    @Test
+    public void testCountStrings() {                                                                    //3.10 количество строк начинающихся со строки-префикса и заканчивающихся строкой-постфиксом
+        assertEquals(StringTasks.countStrings(new String[]{"river", "dog", "dry long", "respect bigger", "among"}, "d", "g"), 2);
+        assertEquals(StringTasks.countStrings(new String[]{"river", "dog", "dry long", "respect bigger", "among"}, "r", "r"), 2);
+        assertEquals(StringTasks.countStrings(new String[]{"river", "dog", "dry long", "respect bigger", "among"}, "l", "l"), 0);
     }
 }
