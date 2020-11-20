@@ -50,6 +50,10 @@ public class StringTasks {
         return str.indexOf(substring, str.length() / 2);
     }
 
+    public static int lastInFirstLineOfFirstLine(String str, String subStr) {               //3.9 возвращающий индекс последнего вхождения второй строки в первую половину первой строки
+        return str.lastIndexOf(subStr, str.length() / 2);
+    }
+
     public static StringTasks check = new StringTasks();
 
     public static void main(String[] args) {

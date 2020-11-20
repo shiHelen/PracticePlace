@@ -46,4 +46,12 @@ public class StringTasksTest {
         assertEquals(StringTasks.findSubstringInSecondHalfString("realized", "bbb"), -1);
         assertEquals(StringTasks.findSubstringInSecondHalfString("", "a"), -1);
     }
+
+    @Test
+    public void testLastInFirstLineOfFirstLine() {
+        assertEquals(StringTasks.lastInFirstLineOfFirstLine("abcabcabcabc", "ab"), 6);
+        assertEquals(StringTasks.lastInFirstLineOfFirstLine("clock", ""), 2);
+        assertEquals(StringTasks.lastInFirstLineOfFirstLine("boolean", "a"), -1);
+        assertEquals(StringTasks.lastInFirstLineOfFirstLine("zooland", "o"), 2);
+    }
 }
