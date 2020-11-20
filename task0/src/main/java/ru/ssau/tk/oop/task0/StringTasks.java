@@ -54,7 +54,7 @@ public class StringTasks {
         return str.lastIndexOf(subStr, str.length() / 2);
     }
 
-    static int countStrings(String[] array, String prefix, String postfix) {                //3.10 количество строк начинающихся со строки-префикса и заканчивающихся строкой-постфиксом
+    public static int countStrings(String[] array, String prefix, String postfix) {                //3.10 количество строк начинающихся со строки-префикса и заканчивающихся строкой-постфиксом
         int count = 0;
         for (String str : array) {
             if (str.startsWith(prefix) && str.endsWith(postfix)) {
@@ -64,7 +64,7 @@ public class StringTasks {
         return count;
     }
 
-    static int newCountOfStrings(String[] array, String prefix, String postfix) {               //3.11 количество строк, содержащихся в массиве и начинающихся со строки-префикса и заканчивающихся строкой-постфиксом, игнорируя все пробельные символы в начале и в конце строки
+    public static int newCountOfStrings(String[] array, String prefix, String postfix) {               //3.11 количество строк, содержащихся в массиве и начинающихся со строки-префикса и заканчивающихся строкой-постфиксом, игнорируя все пробельные символы в начале и в конце строки
         int number = 0;
         for (int i = 0; i < array.length; i++) {
             array[i] = array[i].trim();
@@ -75,6 +75,13 @@ public class StringTasks {
             }
         }
         return number;
+    }
+
+    public static String newString(String strFirst, String strSecond, String strThird) {                //3.12 новую строку, полученную путём замены в первой строки каждое вхождение второй строки на третью строку
+        for (int i = 0; i < 100 && strFirst.contains(strSecond); i++) {
+            strFirst = strFirst.replaceAll(strSecond, strThird);
+        }
+        return strFirst;
     }
 
     public static StringTasks check = new StringTasks();

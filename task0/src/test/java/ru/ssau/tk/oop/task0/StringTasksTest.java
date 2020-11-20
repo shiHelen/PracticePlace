@@ -68,4 +68,11 @@ public class StringTasksTest {
         assertEquals(StringTasks.newCountOfStrings(new String[]{"river  ", "dog    ", "dry long", "respect bigger", "among"}, "r", "r"), 2);
         assertEquals(StringTasks.newCountOfStrings(new String[]{"    river", "    dog", "    dry long", "respect bigger  ", "among"}, "l", "l"), 0);
     }
+
+    @Test
+    public void testNewString() {                                                                    //3.12 новую строку, полученную путём замены в первой строки каждое вхождение второй строки на третью строку
+        assertEquals(StringTasks.newString("opopopopo", "opo", "po"), "popppo");
+        assertEquals(StringTasks.newString("экология", "оло", "ол"), "эколгия");
+        assertEquals(StringTasks.newString("распространение", "стра", "ар"), "распроарнение");
+    }
 }
