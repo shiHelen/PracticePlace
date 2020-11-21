@@ -40,4 +40,19 @@ public class MatrixTest {
         assertEquals(myMatrix3.getAt(1, 2), -11);
         assertEquals(myMatrix3.getAt(3, 1), 0);
     }
+
+    @Test
+    public void testTestToString() {
+        Matrix firstMatrix = new Matrix(3, 3);
+        firstMatrix.setAt(0, 0, 10);
+        firstMatrix.setAt(0, 1, 9);
+        firstMatrix.setAt(0, 2, 8);
+        firstMatrix.setAt(1, 0, 7);
+        firstMatrix.setAt(1, 1, 6);
+        firstMatrix.setAt(1, 2, 5);
+        firstMatrix.setAt(2, 0, 4);
+        firstMatrix.setAt(2, 1, 3);
+        firstMatrix.setAt(2, 2, 2);
+        assertEquals(firstMatrix.toString(), new String("10.0,9.0,8.0;\n" + "7.0,6.0,5.0;\n" + "4.0,3.0,2.0;"));
+    }
 }

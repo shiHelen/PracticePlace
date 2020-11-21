@@ -1,5 +1,7 @@
 package ru.ssau.tk.oop.task0;
 
+import java.util.StringJoiner;
+
 public class Matrix {
     private final double[][] myMatrix;
     private final int n;
@@ -9,6 +11,20 @@ public class Matrix {
         this.n = n;
         this.m = m;
         myMatrix = new double[n][m];
+    }
+
+    @Override
+    public String toString() {
+        StringJoiner columnMatrix = new StringJoiner(";\n");
+        StringJoiner lineMatrix = new StringJoiner(",");
+        for (double[] lineArray : myMatrix) {
+            for (double element : lineArray) {
+                lineMatrix.add(element + "");
+            }
+            columnMatrix.add(lineMatrix.toString());
+            lineMatrix = new StringJoiner(",");
+        }
+        return columnMatrix.toString() + ";";
     }
 
     public int getN() {
