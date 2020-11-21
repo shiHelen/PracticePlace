@@ -84,6 +84,19 @@ public class StringTasks {
         return strFirst;
     }
 
+    public static String getSubstringInString(String str, int from, int to) {                          //3.13 вернуть подстроку из исходной строки от и до заданных индексов
+        if (from < 0) {
+            from = 0;
+        }
+        if (to > str.length()) {
+            to = str.length();
+        }
+        if (from == to) {
+            return "";
+        }
+        return str.substring(from, to);
+    }
+
     public static StringTasks check = new StringTasks();
 
     public static void main(String[] args) {

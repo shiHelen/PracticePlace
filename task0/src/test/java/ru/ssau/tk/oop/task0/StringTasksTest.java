@@ -75,4 +75,13 @@ public class StringTasksTest {
         assertEquals(StringTasks.newString("экология", "оло", "ол"), "эколгия");
         assertEquals(StringTasks.newString("распространение", "стра", "ар"), "распроарнение");
     }
+
+    @Test
+    public void testGetSubstringInString() {                                                         //3.13 вернуть подстроку из исходной строки от и до заданных индексов
+        assertEquals(StringTasks.getSubstringInString("Variable is effectively-final", 1, 1), "");
+        assertEquals(StringTasks.getSubstringInString("Variable is effectively-final", 5, 7), "bl");
+        assertEquals(StringTasks.getSubstringInString("Variable is effectively-final", -10, 3), "Var");
+        assertEquals(StringTasks.getSubstringInString("Variable is effectively-final", 0, 1), "V");
+        assertEquals(StringTasks.getSubstringInString("Variable is effectively-final", 20, 50), "ely-final");
+    }
 }
