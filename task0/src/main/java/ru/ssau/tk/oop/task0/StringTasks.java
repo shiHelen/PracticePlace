@@ -1,5 +1,8 @@
 package ru.ssau.tk.oop.task0;
 
+import java.nio.charset.Charset;
+import java.util.Arrays;
+
 public class StringTasks {
     public void outputSeparately(String sentence) {     //3.1 вывод строки в консоль отдельно по одному символу в строке
         for (int i = 0; i < sentence.length(); i++) {
@@ -116,5 +119,7 @@ public class StringTasks {
         // System.out.println(check.isPalindrome("121")); вызов 3.4
         // System.out.println(check.isSameRegister("aaa", "Aaa"));  вызов 3.5
         // learningCharacterEscaping();                         вызов 3.6
+        Charset charset = Charset.defaultCharset();           //вызов 3.23
+        System.out.println(charset);
     }
 }
