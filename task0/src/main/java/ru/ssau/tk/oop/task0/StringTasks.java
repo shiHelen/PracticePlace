@@ -101,7 +101,15 @@ public class StringTasks {
     }
 
     public static String concatenateStrings(String[] arrayStr) {                                        //3.20 на вход массив строк и объединяющий её в одну строку с перечислением через запятую и пробел
-        return String.join(", ",arrayStr);
+        return String.join(", ", arrayStr);
+    }
+
+    public static String getStringOfNumbers(int number) {                                               //3.22 строку, состоящую из перечисления через пробел всех чисел от 0 (включительно) до входного (исключительно).
+        StringBuilder stringNumbers = new StringBuilder();
+        for (int i = 0; i < number; i++) {
+            stringNumbers.append(i);
+        }
+        return stringNumbers.toString();
     }
 
     public static StringTasks check = new StringTasks();
@@ -125,5 +133,6 @@ public class StringTasks {
         // learningCharacterEscaping();                         вызов 3.6
         // Charset charset = Charset.defaultCharset();           //вызов 3.23
         // System.out.println(charset);
+        System.out.println(getStringOfNumbers(10000));
     }
 }

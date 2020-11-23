@@ -87,10 +87,17 @@ public class StringTasksTest {
 
     @Test
     public void testConcatenateStrings() {                                                               //3.20 на вход массив строк и объединяющий её в одну строку с перечислением через запятую и пробел
-        assertEquals(StringTasks.concatenateStrings(new String[]{"h a v e","a","good", "DAY"}),"h a v e, a, good, DAY");
-        assertEquals(StringTasks.concatenateStrings(new String[]{"1A2b3c","yEp","Sad"}),"1A2b3c, yEp, Sad");
-        assertEquals(StringTasks.concatenateStrings(new String[]{"сессия","близкоо",":("}),"сессия, близкоо, :(");
-        assertEquals(StringTasks.concatenateStrings(new String[]{"ДеД","мОрОз","мёртв"}),"ДеД, мОрОз, мёртв");
-        assertEquals(StringTasks.concatenateStrings(new String[]{"!№;%","asd","789"}),"!№;%, asd, 789");
+        assertEquals(StringTasks.concatenateStrings(new String[]{"h a v e", "a", "good", "DAY"}), "h a v e, a, good, DAY");
+        assertEquals(StringTasks.concatenateStrings(new String[]{"1A2b3c", "yEp", "Sad"}), "1A2b3c, yEp, Sad");
+        assertEquals(StringTasks.concatenateStrings(new String[]{"сессия", "близкоо", ":("}), "сессия, близкоо, :(");
+        assertEquals(StringTasks.concatenateStrings(new String[]{"ДеД", "мОрОз", "мёртв"}), "ДеД, мОрОз, мёртв");
+        assertEquals(StringTasks.concatenateStrings(new String[]{"!№;%", "asd", "789"}), "!№;%, asd, 789");
+    }
+
+    @Test
+    public void testGetStringOfNumbers() {                                                              //3.22 строку, состоящую из перечисления через пробел всех чисел от 0 (включительно) до входного (исключительно).
+        assertEquals(StringTasks.getStringOfNumbers(1), "0");
+        assertEquals(StringTasks.getStringOfNumbers(10), "0123456789");
+        assertEquals(StringTasks.getStringOfNumbers(-5), "");
     }
 }
