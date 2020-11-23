@@ -100,6 +100,10 @@ public class StringTasks {
         return str.substring(from, to);
     }
 
+    public static String concatenateStrings(String[] arrayStr) {                                        //3.20 на вход массив строк и объединяющий её в одну строку с перечислением через запятую и пробел
+        return String.join(", ",arrayStr);
+    }
+
     public static StringTasks check = new StringTasks();
 
     public static void main(String[] args) {
@@ -119,7 +123,7 @@ public class StringTasks {
         // System.out.println(check.isPalindrome("121")); вызов 3.4
         // System.out.println(check.isSameRegister("aaa", "Aaa"));  вызов 3.5
         // learningCharacterEscaping();                         вызов 3.6
-        Charset charset = Charset.defaultCharset();           //вызов 3.23
-        System.out.println(charset);
+        // Charset charset = Charset.defaultCharset();           //вызов 3.23
+        // System.out.println(charset);
     }
 }
