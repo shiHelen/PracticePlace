@@ -1,6 +1,7 @@
 package ru.ssau.tk.oop.task0;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 public class StringTasks {
@@ -123,6 +124,11 @@ public class StringTasks {
         return strBuilder.toString();
     }
 
+    public static String changeCharsetToString(String str, Charset charsetFirst, Charset charsetSecond) {       //3.24 смена кодировки для входной строки
+        return new String(str.getBytes(charsetFirst), charsetSecond);
+    }
+
+
     public static StringTasks check = new StringTasks();
 
     public static void main(String[] args) {
@@ -144,6 +150,12 @@ public class StringTasks {
         // learningCharacterEscaping();                         вызов 3.6
         // Charset charset = Charset.defaultCharset();           //вызов 3.23
         // System.out.println(charset);
-        System.out.println(getStringOfNumbers(10000));
+        // System.out.println(getStringOfNumbers(10000));    вызов 3.22
+        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.UTF_16));         //вызов 3.24
+        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.US_ASCII));
+        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.UTF_16LE));
+        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.ISO_8859_1));
+        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.UTF_16BE));
+        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.UTF_8));
     }
 }
