@@ -100,4 +100,11 @@ public class StringTasksTest {
         assertEquals(StringTasks.getStringOfNumbers(10), "0123456789");
         assertEquals(StringTasks.getStringOfNumbers(-5), "");
     }
+
+    @Test
+    public void testGetNewString() {                                                                    //3.21 в исходной строке заменить каждый чётный символ на номер этого символа, затем перевернуть строку
+        assertEquals(StringTasks.getNewString("01234"), "43210");
+        assertEquals(StringTasks.getNewString("3A1b5C7"), "6C4b2A0");
+        assertEquals(StringTasks.getNewString("AbCdeFgH"), "H6F4d2b0");
+    }
 }

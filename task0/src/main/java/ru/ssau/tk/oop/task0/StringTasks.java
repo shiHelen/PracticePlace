@@ -112,6 +112,17 @@ public class StringTasks {
         return stringNumbers.toString();
     }
 
+    public static String getNewString(String str) {                                                     //3.21 в исходной строке заменить каждый чётный символ на номер этого символа, затем перевернуть строку
+        StringBuilder strBuilder = new StringBuilder(str);
+        for (int i = 0; i < str.length(); i++) {
+            if (i % 2 == 0) {
+                strBuilder.replace(i, i + 1, i + "");
+            }
+        }
+        strBuilder.reverse();
+        return strBuilder.toString();
+    }
+
     public static StringTasks check = new StringTasks();
 
     public static void main(String[] args) {
