@@ -7,6 +7,15 @@ public class Person {
     private String firstName;
     private String lastName;
     private int passportId;
+    private Gender gender;
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
 
     public Person() {
     }

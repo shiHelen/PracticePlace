@@ -18,5 +18,11 @@ public class PersonTest {
         human.setFirstName("");
         human.setLastName("");
         assertEquals(human.toString(), "");
+        Person realHuman = new Person("Fedor", "Dostoevsky");
+        realHuman.setGender(Gender.MALE);
+        assertEquals(realHuman.getGender(), Gender.MALE);
+        Person abstractHuman = new Person("Anna", "Karenina");
+        abstractHuman.setGender(Gender.FEMALE);
+        assertEquals(abstractHuman.getGender(), Gender.FEMALE);
     }
 }
