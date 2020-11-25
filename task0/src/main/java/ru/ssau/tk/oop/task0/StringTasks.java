@@ -101,13 +101,17 @@ public class StringTasks {
         return str.substring(from, to);
     }
 
-    public static String[] tabulatedArrayOfWords(String str) {
-        String[] arrayWords = str.split(" ");
-        for (int i = 0; i < arrayWords.length; i++) {
-            arrayWords[i] = arrayWords[i].substring(0, 1).toUpperCase() + arrayWords[i].substring(1);
-        }
-        return arrayWords;
-    }
+//    public static String[] tabulatedArrayOfWords(String str) {          //3.19 надо доделать в слуае двух пробелов
+//        String[] arrayWords = str.split(" ");
+//        for (int i = 0; i < arrayWords.length; i++) {
+//            if (arrayWords[i].charAt(0) == ' ') {
+//                i++;
+//            } else {
+//                arrayWords[i] = arrayWords[i].substring(0, 1).toUpperCase() + arrayWords[i].substring(1);
+//            }
+//        }
+//        return arrayWords;
+//    }
 
     public static String concatenateStrings(String[] arrayStr) {                                        //3.20 на вход массив строк и объединяющий её в одну строку с перечислением через запятую и пробел
         return String.join(", ", arrayStr);
