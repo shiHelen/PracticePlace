@@ -107,4 +107,11 @@ public class StringTasksTest {
         assertEquals(StringTasks.getNewString("3A1b5C7"), "6C4b2A0");
         assertEquals(StringTasks.getNewString("AbCdeFgH"), "H6F4d2b0");
     }
+
+    @Test
+    public void testTabulatedArrayOfWords() {
+        assertEquals(StringTasks.tabulatedArrayOfWords("Hello, it is me."), new String[]{"Hello,", "It", "Is", "Me."});
+        assertEquals(StringTasks.tabulatedArrayOfWords("We got the power"), new String[]{"We", "Got", "The", "Power"});
+        assertEquals(StringTasks.tabulatedArrayOfWords("The lost chord"), new String[]{"The", "Lost", "Chord"});
+    }
 }

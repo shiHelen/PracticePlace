@@ -101,16 +101,16 @@ public class StringTasks {
         return str.substring(from, to);
     }
 
-    public static String concatenateStrings(String[] arrayStr) {                                        //3.20 на вход массив строк и объединяющий её в одну строку с перечислением через запятую и пробел
-        return String.join(", ", arrayStr);
+    public static String[] tabulatedArrayOfWords(String str) {
+        String[] arrayWords = str.split(" ");
+        for (int i = 0; i < arrayWords.length; i++) {
+            arrayWords[i] = arrayWords[i].substring(0, 1).toUpperCase() + arrayWords[i].substring(1);
+        }
+        return arrayWords;
     }
 
-    public static String getStringOfNumbers(int number) {                                               //3.22 строку, состоящую из перечисления через пробел всех чисел от 0 (включительно) до входного (исключительно).
-        StringBuilder stringNumbers = new StringBuilder();
-        for (int i = 0; i < number; i++) {
-            stringNumbers.append(i);
-        }
-        return stringNumbers.toString();
+    public static String concatenateStrings(String[] arrayStr) {                                        //3.20 на вход массив строк и объединяющий её в одну строку с перечислением через запятую и пробел
+        return String.join(", ", arrayStr);
     }
 
     public static String getNewString(String str) {                                                     //3.21 в исходной строке заменить каждый чётный символ на номер этого символа, затем перевернуть строку
@@ -122,6 +122,14 @@ public class StringTasks {
         }
         strBuilder.reverse();
         return strBuilder.toString();
+    }
+
+    public static String getStringOfNumbers(int number) {                                               //3.22 строку, состоящую из перечисления через пробел всех чисел от 0 (включительно) до входного (исключительно).
+        StringBuilder stringNumbers = new StringBuilder();
+        for (int i = 0; i < number; i++) {
+            stringNumbers.append(i);
+        }
+        return stringNumbers.toString();
     }
 
     public static String changeCharsetToString(String str, Charset charsetFirst, Charset charsetSecond) {       //3.24 смена кодировки для входной строки
