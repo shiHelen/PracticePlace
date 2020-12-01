@@ -1,5 +1,7 @@
 package ru.ssau.tk.oop.task0;
 
+import java.util.Objects;
+
 public class NamedPoint extends Point {
     public String name;
 
@@ -18,6 +20,14 @@ public class NamedPoint extends Point {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        if (Objects.equals(null, name)) {
+            return super.toString();
+        }
+        return name + ": " + super.toString();
     }
 
     public String getName() {

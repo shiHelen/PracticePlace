@@ -23,4 +23,11 @@ public class NamedPointTest {
         assertEquals(test.getName(), "Origin");
         assertEquals(testTo.getName(), "myPoint");
     }
+
+    @Test
+    public void testTestToString() {
+        assertEquals(new NamedPoint(-2., 4.7, 0.3, "Point").toString(), "Point: [-2.0, 4.7, 0.3]");
+        assertEquals(new NamedPoint(-0, 2, 1).toString(), "[0.0, 2.0, 1.0]");
+        assertEquals(new NamedPoint().toString(), "Origin: [0.0, 0.0, 0.0]");
+    }
 }
