@@ -14,7 +14,9 @@ public class MainClass {
 //        System.out.println(othPoint.y);
 //        System.out.println(othPoint.z);
         LaplaceEquation check = new LaplaceEquation();
+        System.out.println("Результат численного метода");
         check.LaplaceWithMonteCarlo();
-
+        System.out.println("Результат аналитического метода");
+        check.analyticalMonteCarloMethod(1000000);
     }
 }
