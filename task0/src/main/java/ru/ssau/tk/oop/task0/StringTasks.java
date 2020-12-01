@@ -140,6 +140,10 @@ public class StringTasks {
         return new String(str.getBytes(charsetFirst), charsetSecond);
     }
 
+    public static void getDescription(Object obj) {
+        System.out.println("Описание объекта: " + obj);
+    }
+
 
     public static StringTasks check = new StringTasks();
 
@@ -163,11 +167,20 @@ public class StringTasks {
         // Charset charset = Charset.defaultCharset();           //вызов 3.23
         // System.out.println(charset);
         // System.out.println(getStringOfNumbers(10000));    вызов 3.22
-        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.UTF_16));         //вызов 3.24
-        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.US_ASCII));
-        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.UTF_16LE));
-        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.ISO_8859_1));
-        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.UTF_16BE));
-        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.UTF_8));
+//        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.UTF_16));         //вызов 3.24
+//        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.US_ASCII));
+//        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.UTF_16LE));
+//        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.ISO_8859_1));
+//        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.UTF_16BE));
+//        System.out.println(changeCharsetToString("Самый пророческий роман Достоевского", StandardCharsets.UTF_8, StandardCharsets.UTF_8));
+        Matrix matrix = new Matrix(2, 2);
+        matrix.setAt(0, 0, 1);
+        matrix.setAt(0, 1, 2);
+        matrix.setAt(1, 0, -3);
+        matrix.setAt(1, 1, -4);
+        StringTasks.getDescription(matrix);
+        StringTasks.getDescription(new Person("Ivan", "Ivanov", 159753963));
+        StringTasks.getDescription(new Point(0, 1, 2));
+        StringTasks.getDescription(new NamedPoint(3, 2, 1, "Point"));
     }
 }
