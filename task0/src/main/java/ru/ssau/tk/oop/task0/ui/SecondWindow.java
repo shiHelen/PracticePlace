@@ -1,70 +1,31 @@
 package ru.ssau.tk.oop.task0.ui;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Date;
 import java.util.function.Consumer;
 
 public class SecondWindow extends JFrame {
-    private JTable table;
-    private JButton btnAdd;
-    public String xValues = "";
-    public double[] xDoubleValues;
-    public String yValues = "";
-    public double[] yDoubleValues;
-    private DefaultTableModel tableModel;
-    private JTextField txtField1;
-    private JTextField txtField2;
 
-    SecondWindow() {
-        super("TabulatedFunction");
-        setBounds(200, 200, 600, 600);
-        createGUI();
-    }
-
-    private void createGUI() {
-        setLayout(new BorderLayout());
-        JScrollPane pane = new JScrollPane();
-        table = new JTable();
-        pane.setViewportView(table);
-        JPanel eastPanel = new JPanel();
-        btnAdd = new JButton("Добавить");
-        eastPanel.add(btnAdd);
-        JPanel northPanel = new JPanel();
-        txtField1 = new JTextField();
-        txtField2 = new JTextField();
-        JLabel lblField1 = new JLabel("Значение Х   ");
-        JLabel lblField2 = new JLabel("Значение Y   ");
-        northPanel.add(lblField1);
-        northPanel.add(txtField1);
-        northPanel.add(lblField2);
-        northPanel.add(txtField2);
-        txtField1.setPreferredSize(lblField1.getPreferredSize());
-        txtField2.setPreferredSize(lblField2.getPreferredSize());
-
-        add(northPanel, BorderLayout.NORTH);
-        add(eastPanel, BorderLayout.EAST);
-        add(pane, BorderLayout.CENTER);
-        tableModel = new DefaultTableModel(new Object[]{"X", "Y"}, 0);
-        table.setModel(tableModel);
-        btnAdd.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int count = tableModel.getRowCount() + 1;
-                tableModel.addRow(new Object[]{txtField1.getText(), txtField2.getText()});
-                xValues += txtField1.getText() + " ";
-                yValues += txtField2.getText() + " ";
-//                String[] xNumbers = xValues.split(" ");
-//                for (int i=0; i<xNumbers.length;i++) {
-//                    xDoubleValues[i]=(double) Double.parseDouble(xNumbers[i]);
-//                }
-            }
+    // callback-функция приходит из другого окна; она будет применяться к дате, которая создаётся в этом окне
+    // ничего возрващать она не должна, т.е. у нас получается функция вида f : Date -> void
+    // самый подходящий для неё функциональный интерфейс - Consumer
+    // если бы функция действовала не из одного значения (из 0 или нескольких) и/или что-то возвращала,
+    // можно было бы выбрать любой другой подходящий функциональный интерфейс:
+    // Producer, Function, BiFunction, BiConsumer, Predicate и т.п.
+    public SecondWindow(Consumer<? super Date> callback) {
+        super("Second Window"); // заголовок окна
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE); // при нажатии на X окно уничтожается
+        setSize(300, 100); // размеры окна
+        setLocationRelativeTo(null); // центрируем окно относительно экрана с учётом заданных выше размеров
+        setLayout(new FlowLayout()); // самый простой менеджер компоновки
+        JButton button = new JButton("Close"); // кнопка закрытия
+        button.addActionListener(event -> { // слушатель, заданный с помощью лямбда-выражения
+            Date date = new Date(); // создаём объект текущей даты
+            callback.accept(date); // применяем callback-функцию к дате
+            dispose(); // уничтожаем окно
         });
-        setLocationByPlatform(true);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
+        getContentPane().add(button); // добавляем кнопку
     }
+
 }
